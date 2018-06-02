@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 import Beneficiary from '../../components/Beneficiary/Beneficiary';
+import Projects from '../../components/Projects/Projects';
 
 class ProjectManager extends Component {
     state = {
-        beneficiaries: []
+        beneficiaries: [],
+        selectedBeneficiaryId: null
     }
 
     componentDidMount() {
@@ -17,17 +19,26 @@ class ProjectManager extends Component {
             });
     }
 
+    selectedBeneficiaryHandler = (id) => {
+        this.setState({selectedBeneficiaryId : id});
+        console.log(id);
+    }
+
     render() {
         let beneficiaryOutput = <p>Brak beneficjentów w bazie danych</p>
         if (this.state.beneficiaries.length > 0) {
             beneficiaryOutput = this.state.beneficiaries.map(beneficiary => {
-                return <Beneficiary key={beneficiary.id} name={beneficiary.name}/>
+                return <Beneficiary
+                    key={beneficiary.id}
+                    name={beneficiary.name}
+                    clicked={() => this.selectedBeneficiaryHandler(beneficiary.id)} />
             });
         }
         return (
 
             <div>
                 <div className="card-deck">{beneficiaryOutput}</div>
+                <Projects beneficiaryId={this.state.selectedBeneficiaryId} />
                 <p>Projekty</p>
                 <p>Zadania</p>
             </div>
