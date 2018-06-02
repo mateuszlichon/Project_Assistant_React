@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+import Beneficiary from '../../components/Beneficiary/Beneficiary';
+
 class ProjectManager extends Component {
     state = {
         beneficiaries: []
@@ -19,7 +21,9 @@ class ProjectManager extends Component {
         let beneficiaryOutput = <p>Brak beneficjentów w bazie danych</p>
         if (this.state.beneficiaries.length > 0) {
             console.log(this.state.beneficiaries[0].name);
-            beneficiaryOutput = <p>Beneficjenci {this.state.beneficiaries[0].name}</p>
+            beneficiaryOutput = this.state.beneficiaries.map(beneficiary => {
+                return <Beneficiary key={beneficiary.id} name={beneficiary.name}/>
+            });
         }
         return (
 
