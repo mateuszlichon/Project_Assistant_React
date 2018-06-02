@@ -20,7 +20,6 @@ class ProjectManager extends Component {
     render() {
         let beneficiaryOutput = <p>Brak beneficjentów w bazie danych</p>
         if (this.state.beneficiaries.length > 0) {
-            console.log(this.state.beneficiaries[0].name);
             beneficiaryOutput = this.state.beneficiaries.map(beneficiary => {
                 return <Beneficiary key={beneficiary.id} name={beneficiary.name}/>
             });
@@ -28,7 +27,7 @@ class ProjectManager extends Component {
         return (
 
             <div>
-                {beneficiaryOutput}
+                <div className="card-deck">{beneficiaryOutput}</div>
                 <p>Projekty</p>
                 <p>Zadania</p>
             </div>

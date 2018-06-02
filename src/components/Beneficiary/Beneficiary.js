@@ -1,8 +1,8 @@
 import React from 'react';
 
 const beneficiary = (props) => (
-    <div>
-        <p>nazwa: {props.name}</p>
+    <div className='card bg-info'>
+        <div className="card-header">nazwa: {props.name}</div>
     </div>
 )
 
