@@ -16,7 +16,6 @@ class ProjectManager extends Component {
             .then(response => {
                 const beneficiaries = response.data;
                 this.setState({ beneficiaries: beneficiaries });
-                console.log(beneficiaries);
             });
     }
 

@@ -12,7 +12,6 @@ class NavigationPanelProjects extends Component {
         axios.get('http://localhost:8080/projects/beneficiary/' + this.props.beneficiaryId)
             .then(response => {
                 this.setState({ projects: response.data });
-                console.log(response.data);
             });
     }
 
@@ -28,9 +27,7 @@ class NavigationPanelProjects extends Component {
         }
 
         return (
-            <div>
-                {beneficiaryProjects}
-            </div>
+            <div>{beneficiaryProjects}</div>
         );
     }
 

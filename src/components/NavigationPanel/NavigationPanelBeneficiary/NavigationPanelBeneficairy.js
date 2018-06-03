@@ -4,9 +4,7 @@ import NavigationPanelProjects from '../NavigationPanelProjects/NavigationPanelP
 
 const navigationPanelBeneficiary = (props) => (
     <div>
-        <a className="text-light ml-1" href="">
-            {props.name}
-        </a>
+        <a href=""><h4 className="text-light ml-2">{props.name}</h4></a>
         <ul className="list-group mb-5"><NavigationPanelProjects beneficiaryId={props.id} /></ul>
     </div>
 )
