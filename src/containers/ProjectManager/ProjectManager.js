@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import Beneficiary from '../../components/Beneficiary/Beneficiary';
@@ -14,13 +14,13 @@ class ProjectManager extends Component {
         axios.get('http://localhost:8080/beneficiaries')
             .then(response => {
                 const beneficiaries = response.data;
-                this.setState({beneficiaries : beneficiaries});
+                this.setState({ beneficiaries: beneficiaries });
                 console.log(beneficiaries);
             });
     }
 
     selectedBeneficiaryHandler = (id) => {
-        this.setState({selectedBeneficiaryId : id});
+        this.setState({ selectedBeneficiaryId: id });
         console.log(id);
     }
 
@@ -35,16 +35,19 @@ class ProjectManager extends Component {
             });
         }
         return (
-
-            <div>
-                <div className="card-deck">{beneficiaryOutput}</div>
-                <Projects beneficiaryId={this.state.selectedBeneficiaryId} />
-                <p>Projekty</p>
-                <p>Zadania</p>
+            <div className="row">
+                <div className="col-sm-2 bg-info">
+                </div>
+                <div className="col-sm-10">
+                    <div className="card-deck">{beneficiaryOutput}</div>
+                    <Projects beneficiaryId={this.state.selectedBeneficiaryId} />
+                    <p>Projekty</p>
+                    <p>Zadania</p>
+                </div>
             </div>
 
         )
     }
-} 
+}
 
 export default ProjectManager;
