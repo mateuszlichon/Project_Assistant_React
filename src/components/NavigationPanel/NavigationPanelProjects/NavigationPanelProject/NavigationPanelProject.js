@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-const navigationPanelProject = (props) => (
-    <li>{props.name}</li>
-)
+class NavigationPanelProject extends Component {
+    state = {
+        tasks : []
+    }
 
-export default navigationPanelProject;
+    componentDidMount() {
+        axios.get('http://localhost:8080/tasks/project/' + this.props.projectId)
+            .then(response => {
+                this.setState({ tasks : response.data });
+                console.log(response.data);
+            });
+    }
+
+    render() {
+        return (
+            <a className="text-light ml-4" href="">{this.props.name}<br /></a>
+        )
+    }
+}
+
+export default NavigationPanelProject;
