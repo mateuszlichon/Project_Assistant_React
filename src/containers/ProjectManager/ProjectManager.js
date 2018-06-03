@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Beneficiary from '../../components/Beneficiary/Beneficiary';
 import Projects from '../../components/Projects/Projects';
+import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
 
 class ProjectManager extends Component {
     state = {
@@ -37,6 +38,7 @@ class ProjectManager extends Component {
         return (
             <div className="row">
                 <div className="col-sm-2 bg-info">
+                    <NavigationPanel />
                 </div>
                 <div className="col-sm-10">
                     <div className="card-deck">{beneficiaryOutput}</div>
