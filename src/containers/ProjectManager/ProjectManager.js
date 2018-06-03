@@ -37,10 +37,10 @@ class ProjectManager extends Component {
         }
         return (
             <div className="row">
-                <div className="col-sm-2 bg-info">
+                <div className="col-sm-2 bg-primary">
                     <NavigationPanel />
                 </div>
-                <div className="col-sm-10">
+                <div className="col-sm-10 bg-secondary">
                     <div className="card-deck">{beneficiaryOutput}</div>
                     <Projects beneficiaryId={this.state.selectedBeneficiaryId} />
                     <p>Projekty</p>
