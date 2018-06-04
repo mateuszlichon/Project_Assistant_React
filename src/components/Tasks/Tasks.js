@@ -8,6 +8,7 @@ const tasks = (props) => {
         tasks = props.tasks.map(response => {
             return <Task
                 name={response.name}
+                selectedTask={() => props.selectedTask(response)}
                 // voivodeship={response.voivodeship}
                 key={response.id} />
         })

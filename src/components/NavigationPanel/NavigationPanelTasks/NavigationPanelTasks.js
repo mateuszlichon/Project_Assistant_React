@@ -22,6 +22,7 @@ class NavigationPanelTasks extends Component {
                 return <NavigationPanelTask
                     key={task.id}
                     name={task.name}
+                    selectedTask={() => this.props.selectedTask(task)}
                     tasktId={task.id} />
             })
         }

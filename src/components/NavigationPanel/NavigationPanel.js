@@ -10,7 +10,9 @@ const navigationPanel = (props) => {
                 name={beneficiary.name}
                 id={beneficiary.id}
                 clicked={() => props.clickBeneficiary(beneficiary)}
-                clickProject={(project) => props.clickProject(project)} />
+                clickProject={(project) => props.clickProject(project)}
+                selectedTask={(task) => props.selectedTask(task)}
+                />
 
         });
     }

@@ -7,6 +7,7 @@ const navigationPanelBeneficiary = (props) => (
         <a><h4 className="text-light ml-2" onClick={props.clicked}>{props.name}</h4></a>
         <ul><NavigationPanelProjects
             beneficiaryId={props.id}
+            selectedTask={(task) => props.selectedTask(task)}
             clickProject={(project) => props.clickProject(project)}/></ul>
     </div>
 )

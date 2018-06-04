@@ -9,7 +9,10 @@ const selectedProject = (props) => (
             name={props.selectedProject.name}
             voivodeship={props.selectedProject.voivodeship} /></div>
         <br />
-        <Tasks tasks={props.projectTasks} />
+        <Tasks
+            tasks={props.projectTasks}
+            selectedTask={(selectedTask) => props.selectedTask(selectedTask)}
+            />
     </div>
 )
 

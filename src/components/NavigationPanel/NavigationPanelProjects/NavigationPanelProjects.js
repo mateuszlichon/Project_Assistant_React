@@ -23,6 +23,7 @@ class NavigationPanelProjects extends Component {
                     key={project.id}
                     name={project.name}
                     projectId={project.id}
+                    selectedTask={(task) => this.props.selectedTask(task)}
                     clickProject={() => this.props.clickProject(project)} />
             })
         }

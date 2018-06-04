@@ -5,7 +5,8 @@ const navigationPanelProject = (props) => (
     <div>
         <a><h6 className="text-light" onClick={props.clickProject} >{props.name}</h6></a>
         <ul><NavigationPanelTasks
-            projectId={props.projectId} /></ul>
+            projectId={props.projectId}
+            selectedTask={(task) => props.selectedTask(task)} /></ul>
     </div>
 )
 

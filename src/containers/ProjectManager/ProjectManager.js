@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
 import SelectedBeneficiary from '../../components/SelectedComponents/SelectedBeneficiary';
 import SelectedProject from '../../components/SelectedComponents/SelectedProject';
+import SelectedTask from '../../components/SelectedComponents/SelectedTask';
 
 class ProjectManager extends Component {
     state = {
@@ -13,7 +14,9 @@ class ProjectManager extends Component {
         beneficiaryProjects: [],
         previousProject: [],
         selectedProject: null,
-        projectTasks: []
+        projectTasks: [],
+        previousTask: [],
+        selectedTask: null
     }
 
     componentDidMount() {
@@ -54,7 +57,8 @@ class ProjectManager extends Component {
         this.setState({
             previousBeneficiary: previousBeneficiary,
             selectedBeneficiary: beneficiary,
-            selectedProject: null
+            selectedProject: null,
+            selectedTask: null
         });
     }
 
@@ -63,8 +67,19 @@ class ProjectManager extends Component {
         const previousProject = this.state.selectedProject;
         this.setState({
             selectedBeneficiary: null,
+            selectedTask: null,
             selectedProject: project,
             previousProject: previousProject
+        });
+    }
+
+    selectedTaskHandler = (task) => {
+        const previousTask = this.state.selectedTask;
+        this.setState({
+            selectedBeneficiary: null,
+            selectedProject: null,
+            selectedTask: task,
+            previousTask: previousTask
         });
     }
 
@@ -81,6 +96,13 @@ class ProjectManager extends Component {
             pageOutput = <SelectedProject
             selectedProject={this.state.selectedProject}
             projectTasks={this.state.projectTasks}
+            selectedTask={(task) => this.selectedTaskHandler(task)}
+            />
+        }
+
+        if(this.state.selectedTask !== null) {
+            pageOutput = <SelectedTask
+            selectedTask={this.state.selectedTask}
             />
         }
 
@@ -92,6 +114,7 @@ class ProjectManager extends Component {
                         clickBeneficiary={(beneficiary) => this.selectedBeneficiaryHandler(beneficiary)}
                         beneficiaries={this.state.beneficiaries}
                         clickProject={(project) => this.selectedProjectHandler(project)}
+                        selectedTask={(task) => this.selectedTaskHandler(task)}
                     />
                 </div>
                 {pageOutput}

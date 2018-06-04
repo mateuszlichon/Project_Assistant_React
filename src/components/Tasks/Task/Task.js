@@ -2,7 +2,7 @@ import React from 'react';
 
 const task = (props) => (
     <div className='card text-center'>
-        <div className="card-header">nazwa: {props.name}</div>
+        <div className="card-header" onClick={props.selectedTask}>nazwa: {props.name}</div>
         <div className="card-body">        
         {/* <p className="card-text">województwo: {props.voivodeship}</p> */}
             <p className="card-text">@jakieś informacje o zadaniu@</p>
