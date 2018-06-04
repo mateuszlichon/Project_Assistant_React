@@ -8,7 +8,9 @@ import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
 class ProjectManager extends Component {
     state = {
         beneficiaries: [],
-        selectedBeneficiary: null
+        previousBeneficiary: [],
+        selectedBeneficiary: null,
+        beneficiaryProjects: []
     }
 
     componentDidMount() {
@@ -19,24 +21,41 @@ class ProjectManager extends Component {
             });
     }
 
+    componentDidUpdate() {
+        if (this.state.selectedBeneficiary !== null && (this.state.selectedBeneficiary !== this.state.previousBeneficiary)) {
+                axios.get('http://localhost:8080/projects/beneficiary/' + this.state.selectedBeneficiary.id)
+                    .then(response => {
+                        this.setState({ beneficiaryProjects: response.data });
+                        console.log(response.data);
+                    });
+            const previousBeneficiary = this.state.selectedBeneficiary;
+            this.setState({
+                previousBeneficiary: previousBeneficiary
+            });
+        }
+    }
+
     selectedBeneficiaryHandler = (beneficiary) => {
-        this.setState({ selectedBeneficiary: beneficiary });
-        console.log(beneficiary);
+        const previousBeneficiary = this.state.selectedBeneficiary;
+        this.setState({
+            previousBeneficiary: previousBeneficiary,
+            selectedBeneficiary: beneficiary
+        });
     }
 
     render() {
         let beneficiaryOutput = <p>Brak beneficjentów w bazie danych</p>
         if (this.state.selectedBeneficiary) {
             beneficiaryOutput = <Beneficiary
-                    key={this.state.selectedBeneficiary.id}
-                    name={this.state.selectedBeneficiary.name}
-                    />;
+                key={this.state.selectedBeneficiary.id}
+                name={this.state.selectedBeneficiary.name}
+            />;
         }
         return (
             <div className="row">
                 <div className="col-sm-2 bg-info">
-                <br />
-                    <NavigationPanel clickBeneficiary={(beneficiaryId) => this.selectedBeneficiaryHandler(beneficiaryId)} beneficiaries={this.state.beneficiaries} />
+                    <br />
+                    <NavigationPanel clickBeneficiary={(beneficiary) => this.selectedBeneficiaryHandler(beneficiary)} beneficiaries={this.state.beneficiaries} />
                 </div>
                 <div className="col-sm-10">
                     <div className="card-deck">{beneficiaryOutput}</div>
