@@ -9,7 +9,7 @@ const navigationPanel = (props) => {
                 key={beneficiary.id}
                 name={beneficiary.name}
                 id={beneficiary.id}
-                clicked={() => props.clickBeneficiary(beneficiary.id)} />
+                clicked={() => props.clickBeneficiary(beneficiary)} />
 
         });
     }

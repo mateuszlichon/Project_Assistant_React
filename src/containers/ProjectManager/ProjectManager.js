@@ -8,7 +8,7 @@ import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
 class ProjectManager extends Component {
     state = {
         beneficiaries: [],
-        selectedBeneficiaryId: null
+        selectedBeneficiary: null
     }
 
     componentDidMount() {
@@ -19,20 +19,18 @@ class ProjectManager extends Component {
             });
     }
 
-    selectedBeneficiaryHandler = (id) => {
-        this.setState({ selectedBeneficiaryId: id });
-        console.log(id);
+    selectedBeneficiaryHandler = (beneficiary) => {
+        this.setState({ selectedBeneficiary: beneficiary });
+        console.log(beneficiary);
     }
 
     render() {
         let beneficiaryOutput = <p>Brak beneficjentów w bazie danych</p>
-        if (this.state.beneficiaries.length > 0) {
-            beneficiaryOutput = this.state.beneficiaries.map(beneficiary => {
-                return <Beneficiary
-                    key={beneficiary.id}
-                    name={beneficiary.name}
-                    clicked={() => this.selectedBeneficiaryHandler(beneficiary.id)} />
-            });
+        if (this.state.selectedBeneficiary) {
+            beneficiaryOutput = <Beneficiary
+                    key={this.state.selectedBeneficiary.id}
+                    name={this.state.selectedBeneficiary.name}
+                    />;
         }
         return (
             <div className="row">
