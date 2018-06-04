@@ -1,7 +1,7 @@
 import React from 'react';
 
 const navigationPanelTask = (props) => (
-    <a href=""><h6 className="text-light ml-3">{props.name}</h6></a>
+    <a className="text-light" href="">{props.name}<br /></a>
 )
 
 export default navigationPanelTask;

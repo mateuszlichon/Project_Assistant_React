@@ -9,7 +9,7 @@ const navigationPanel = (props) => {
                 key={beneficiary.id}
                 name={beneficiary.name}
                 id={beneficiary.id}
-                clicked={() => this.selectedBeneficiaryHandler(beneficiary.id)} />
+                clicked={() => props.clickBeneficiary(beneficiary.id)} />
 
         });
     }
@@ -17,9 +17,6 @@ const navigationPanel = (props) => {
     return (
         <div>
             <ul className="list-group mb-5">{navigationPanelOutput}</ul>
-            <p>Beneficjent</p>
-            <p>Projekt</p>
-            <p>Zadanie</p>
         </div>
     );
 }

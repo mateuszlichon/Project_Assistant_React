@@ -3,7 +3,7 @@ import NavigationPanelTasks from '../../NavigationPanelTasks/NavigationPanelTask
 
 const navigationPanelProject = (props) => (
     <div>
-        <a href=""><h5 className="text-light ml-4" >{props.name}</h5></a>
+        <a href=""><h6 className="text-light" >{props.name}</h6></a>
         <ul><NavigationPanelTasks projectId={props.projectId} /></ul>
     </div>
 )
