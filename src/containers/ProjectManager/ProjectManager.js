@@ -26,7 +26,6 @@ class ProjectManager extends Component {
                 axios.get('http://localhost:8080/projects/beneficiary/' + this.state.selectedBeneficiary.id)
                     .then(response => {
                         this.setState({ beneficiaryProjects: response.data });
-                        console.log(response.data);
                     });
             const previousBeneficiary = this.state.selectedBeneficiary;
             this.setState({
@@ -44,7 +43,7 @@ class ProjectManager extends Component {
     }
 
     render() {
-        let beneficiaryOutput = <p>Brak beneficjentów w bazie danych</p>
+        let beneficiaryOutput = <p>@Beneficjent nie wybrany. Wyświetlić podsumowania@</p>
         if (this.state.selectedBeneficiary) {
             beneficiaryOutput = <Beneficiary
                 key={this.state.selectedBeneficiary.id}
@@ -59,7 +58,7 @@ class ProjectManager extends Component {
                 </div>
                 <div className="col-sm-10">
                     <div className="card-deck">{beneficiaryOutput}</div>
-                    <Projects beneficiaryId={this.state.selectedBeneficiaryId} />
+                    <Projects projects={this.state.beneficiaryProjects} />
                     <p>Projekty</p>
                     <p>Zadania</p>
                 </div>

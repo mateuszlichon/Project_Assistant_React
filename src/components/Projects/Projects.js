@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 import Project from './Project/Project';
 
-class Projects extends Component {
-
-
-
-    render() {
-        return <Project />;
+const projects = (props) => {
+    let projects = "";
+    if (props.projects.length > 0) {
+        projects = props.projects.map(response => {
+            return <Project name={response.name} key={response.id} />
+        })
     }
 
+    return (<div className="card-deck">{projects}</div>);
 }
 
-export default Projects;
+export default projects;
