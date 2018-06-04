@@ -6,7 +6,10 @@ const projects = (props) => {
     let projects = "";
     if (props.projects.length > 0) {
         projects = props.projects.map(response => {
-            return <Project name={response.name} key={response.id} />
+            return <Project
+                name={response.name}
+                voivodeship={response.voivodeship}
+                key={response.id} />
         })
     }
 

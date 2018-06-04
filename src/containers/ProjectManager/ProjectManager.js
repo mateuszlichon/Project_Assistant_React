@@ -52,11 +52,11 @@ class ProjectManager extends Component {
         }
         return (
             <div className="row">
-                <div className="col-sm-2 bg-info">
+                <div className="col-sm-3 bg-info">
                     <br />
                     <NavigationPanel clickBeneficiary={(beneficiary) => this.selectedBeneficiaryHandler(beneficiary)} beneficiaries={this.state.beneficiaries} />
                 </div>
-                <div className="col-sm-10">
+                <div className="col-sm-9">
                     <div className="card-deck">{beneficiaryOutput}</div>
                     <Projects projects={this.state.beneficiaryProjects} />
                     <p>Projekty</p>

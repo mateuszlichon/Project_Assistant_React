@@ -16,7 +16,7 @@ class NavigationPanelProjects extends Component {
     }
 
     render() {
-        let beneficiaryProjects = <li className="ml-4">nie ma projektów w bazie danych</li>
+        let beneficiaryProjects = <li className="ml-1">nie ma projektów w bazie danych</li>
         if (this.state.projects.length > 0) {
             beneficiaryProjects = this.state.projects.map(project => {
                 return <NavigationPanelProject

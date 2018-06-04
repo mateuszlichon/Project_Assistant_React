@@ -16,7 +16,7 @@ class NavigationPanelTasks extends Component {
     }
 
     render() {
-        let projectTasks = <li className="ml-4">nie ma zadań w bazie danych</li>
+        let projectTasks = <li className="ml-1">nie ma zadań w bazie danych</li>
         if (this.state.tasks.length > 0) {
             projectTasks = this.state.tasks.map(task => {
                 return <NavigationPanelTask
