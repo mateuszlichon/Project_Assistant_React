@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Beneficiary from '../../components/Beneficiary/Beneficiary';
-import Projects from '../../components/Projects/Projects';
 import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
+import SelectedBeneficiary from '../../components/SelectedComponents/SelectedBeneficiary';
 
 class ProjectManager extends Component {
     state = {
@@ -42,26 +41,30 @@ class ProjectManager extends Component {
         });
     }
 
+    selectedProjectHandler = (project) => {
+        console.log(project);
+        const previousProject = this.state.selectedProject;
+        this.setState({
+            previousProject: previousProject,
+            selectedProject: project
+        });
+    }
+
     render() {
-        let beneficiaryOutput = <p>@Beneficjent nie wybrany. Wyświetlić podsumowania@</p>
-        if (this.state.selectedBeneficiary) {
-            beneficiaryOutput = <Beneficiary
-                key={this.state.selectedBeneficiary.id}
-                name={this.state.selectedBeneficiary.name}
-            />;
-        }
+
         return (
             <div className="row">
                 <div className="col-sm-3 bg-info">
                     <br />
-                    <NavigationPanel clickBeneficiary={(beneficiary) => this.selectedBeneficiaryHandler(beneficiary)} beneficiaries={this.state.beneficiaries} />
+                    <NavigationPanel
+                        clickBeneficiary={(beneficiary) => this.selectedBeneficiaryHandler(beneficiary)}
+                        beneficiaries={this.state.beneficiaries}
+                        clickProject={(project) => this.selectedProjectHandler(project)}
+                        />
                 </div>
-                <div className="col-sm-9">
-                    <div className="card-deck">{beneficiaryOutput}</div>
-                    <Projects projects={this.state.beneficiaryProjects} />
-                    <p>Projekty</p>
-                    <p>Zadania</p>
-                </div>
+                <SelectedBeneficiary
+                    selectedBeneficiary={this.state.selectedBeneficiary}
+                    beneficiaryProjects={this.state.beneficiaryProjects} />
             </div>
 
         )

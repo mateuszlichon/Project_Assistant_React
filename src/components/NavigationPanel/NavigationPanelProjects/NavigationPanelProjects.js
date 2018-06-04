@@ -22,7 +22,8 @@ class NavigationPanelProjects extends Component {
                 return <NavigationPanelProject
                     key={project.id}
                     name={project.name}
-                    projectId={project.id} />
+                    projectId={project.id}
+                    clickProject={() => this.props.clickProject(project)} />
             })
         }
 
