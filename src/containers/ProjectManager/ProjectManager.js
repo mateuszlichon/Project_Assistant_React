@@ -63,7 +63,7 @@ class ProjectManager extends Component {
     }
 
     selectedProjectHandler = (project) => {
-        console.log(project);
+        // console.log(project);
         const previousProject = this.state.selectedProject;
         this.setState({
             selectedBeneficiary: null,
@@ -87,22 +87,22 @@ class ProjectManager extends Component {
         let pageOutput = <h3>@Ekran powitalny i wiadomości porównawcze@</h3>
         if (this.state.selectedBeneficiary !== null) {
             pageOutput = <SelectedBeneficiary
-            selectedBeneficiary={this.state.selectedBeneficiary}
-            beneficiaryProjects={this.state.beneficiaryProjects}
-            clickProject={(project) => this.selectedProjectHandler(project)}/>
+                selectedBeneficiary={this.state.selectedBeneficiary}
+                beneficiaryProjects={this.state.beneficiaryProjects}
+                clickProject={(project) => this.selectedProjectHandler(project)} />
         }
 
-        if(this.state.selectedProject !== null) {
+        if (this.state.selectedProject !== null) {
             pageOutput = <SelectedProject
-            selectedProject={this.state.selectedProject}
-            projectTasks={this.state.projectTasks}
-            selectedTask={(task) => this.selectedTaskHandler(task)}
+                selectedProject={this.state.selectedProject}
+                projectTasks={this.state.projectTasks}
+                selectedTask={(task) => this.selectedTaskHandler(task)}
             />
         }
 
-        if(this.state.selectedTask !== null) {
+        if (this.state.selectedTask !== null) {
             pageOutput = <SelectedTask
-            selectedTask={this.state.selectedTask}
+                selectedTask={this.state.selectedTask}
             />
         }
 

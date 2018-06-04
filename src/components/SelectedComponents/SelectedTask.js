@@ -8,6 +8,8 @@ const selectedTask = (props) => {
         taskOutput = <Task
             key={props.selectedTask.id}
             name={props.selectedTask.name}
+            groupAmount={props.selectedTask.groupAmount}
+            participantAmount={props.selectedTask.participantAmount}
         />;
     }
     return (
