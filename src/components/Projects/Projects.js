@@ -9,7 +9,9 @@ const projects = (props) => {
             return <Project
                 name={response.name}
                 voivodeship={response.voivodeship}
-                key={response.id} />
+                key={response.id}
+                clickProject={() => props.clickProject(response)}
+                />
         })
     }
 

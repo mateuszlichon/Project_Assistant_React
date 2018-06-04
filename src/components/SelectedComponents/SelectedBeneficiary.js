@@ -14,9 +14,10 @@ const selectedBeneficiary = (props) => {
     return (
         <div className="col-sm-9">
             <div className="card-deck">{beneficiaryOutput}</div>
-            <Projects projects={props.beneficiaryProjects} />
-            <p>Projekty</p>
-            <p>Zadania</p>
+            <br />
+            <Projects
+                projects={props.beneficiaryProjects}
+                clickProject={(project) => props.clickProject(project)} />
         </div>
     )
 }

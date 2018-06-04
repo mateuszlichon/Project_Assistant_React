@@ -2,7 +2,7 @@ import React from 'react';
 
 const project = (props) => (
     <div className='card text-center'>
-        <div className="card-header">nazwa: {props.name}</div>
+        <div className="card-header" onClick={props.clickProject}>nazwa: {props.name}</div>
         <div className="card-body">        
         <p className="card-text">województwo: {props.voivodeship}</p>
             <p className="card-text">@jakieś informacje o projekcie@</p>

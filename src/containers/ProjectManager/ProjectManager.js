@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
 import SelectedBeneficiary from '../../components/SelectedComponents/SelectedBeneficiary';
-import Project from '../../components/Projects/Project/Project';
+import SelectedProject from '../../components/SelectedComponents/SelectedProject';
 
 class ProjectManager extends Component {
     state = {
@@ -11,7 +11,9 @@ class ProjectManager extends Component {
         previousBeneficiary: [],
         selectedBeneficiary: null,
         beneficiaryProjects: [],
-        selectedProject: null
+        previousProject: [],
+        selectedProject: null,
+        projectTasks: []
     }
 
     componentDidMount() {
@@ -34,17 +36,17 @@ class ProjectManager extends Component {
             });
         }
 
-        // if (this.state.selectedProject !== null && (this.state.selectedProject !== this.state.previousProject)) {
-        //     axios.get('http://localhost:8080/projects/' + this.state.selectedProject.id)
-        //         .then(response => {
-        //             // this.setState({ beneficiaryProjects: response.data });
-        //             console.log(response.data);
-        //         });
-        //     const previousProject = this.state.selectedProject;
-        //     this.setState({
-        //         previousProject: previousProject
-        //     });
-        // }
+        if (this.state.selectedProject !== null && (this.state.selectedProject !== this.state.previousProject)) {
+            axios.get('http://localhost:8080/tasks/project/' + this.state.selectedProject.id)
+                .then(response => {
+                    this.setState({ projectTasks: response.data });
+                    // console.log(response.data);
+                });
+            const previousProject = this.state.selectedProject;
+            this.setState({
+                previousProject: previousProject
+            });
+        }
     }
 
     selectedBeneficiaryHandler = (beneficiary) => {
@@ -61,22 +63,25 @@ class ProjectManager extends Component {
         const previousProject = this.state.selectedProject;
         this.setState({
             selectedBeneficiary: null,
-            selectedProject: project
+            selectedProject: project,
+            previousProject: previousProject
         });
     }
 
     render() {
-        let pageOutput = <h3>Witamy w programie Project Assistant. Proszę wybrać projekt lub beneficjenta</h3>
+        let pageOutput = <h3>@Ekran powitalny i wiadomości porównawcze@</h3>
         if (this.state.selectedBeneficiary !== null) {
             pageOutput = <SelectedBeneficiary
             selectedBeneficiary={this.state.selectedBeneficiary}
-            beneficiaryProjects={this.state.beneficiaryProjects} />
+            beneficiaryProjects={this.state.beneficiaryProjects}
+            clickProject={(project) => this.selectedProjectHandler(project)}/>
         }
 
         if(this.state.selectedProject !== null) {
-            pageOutput = <Project
-                name={this.state.selectedProject.name}
-                voivodeship={this.state.selectedProject.voivodeship} />
+            pageOutput = <SelectedProject
+            selectedProject={this.state.selectedProject}
+            projectTasks={this.state.projectTasks}
+            />
         }
 
         return (
