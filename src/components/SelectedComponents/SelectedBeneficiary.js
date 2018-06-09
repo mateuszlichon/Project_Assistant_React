@@ -12,7 +12,7 @@ const selectedBeneficiary = (props) => {
         />;
     }
     return (
-        <div className="col-sm-9">
+        <div>
             <div className="card-deck">{beneficiaryOutput}</div>
             <br />
             <Projects

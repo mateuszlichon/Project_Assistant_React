@@ -13,7 +13,7 @@ const selectedTask = (props) => {
         />;
     }
     return (
-        <div className="col-sm-9">
+        <div>
             <div className="card-deck">{taskOutput}</div>
             {/* <br />
             <Projects

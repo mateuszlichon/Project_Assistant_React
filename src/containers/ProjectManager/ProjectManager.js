@@ -117,7 +117,9 @@ class ProjectManager extends Component {
                         selectedTask={(task) => this.selectedTaskHandler(task)}
                     />
                 </div>
-                {pageOutput}
+                <div className="col-sm-9">
+                    {pageOutput}
+                </div>
             </div>
 
         )
