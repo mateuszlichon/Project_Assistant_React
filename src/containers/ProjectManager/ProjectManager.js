@@ -108,7 +108,7 @@ class ProjectManager extends Component {
 
         return (
             <div className="row">
-                <div className="col-sm-3 bg-info">
+                <div className="col-sm-5 col-md-4 col-lg-3 col-xl-2 bg-info">
                     <br />
                     <NavigationPanel
                         clickBeneficiary={(beneficiary) => this.selectedBeneficiaryHandler(beneficiary)}
@@ -117,7 +117,7 @@ class ProjectManager extends Component {
                         selectedTask={(task) => this.selectedTaskHandler(task)}
                     />
                 </div>
-                <div className="col-sm-9">
+                <div className="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     {pageOutput}
                 </div>
             </div>
