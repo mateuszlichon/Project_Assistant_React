@@ -21,15 +21,17 @@ class NavigationPanelProjects extends Component {
         if (this.state.projects.length > 0) {
             beneficiaryProjects = this.state.projects.map(project => {
                 return (
-                    <NavLink
-                        to={'/manager/' + project.id}
-                        key={project.id}>
+                    // <NavLink
+                    //     to={'/manager/' + project.id}
+                    //     key={project.id}>
                         <NavigationPanelProject
+                        key={project.id}
                             name={project.name}
                             projectId={project.id}
                             selectedTask={(task) => this.props.selectedTask(task)}
                             clickProject={() => this.props.clickProject(project)} />
-                    </NavLink>);
+                    // </NavLink>
+                );
             });
         }
 

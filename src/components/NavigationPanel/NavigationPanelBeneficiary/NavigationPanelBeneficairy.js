@@ -4,11 +4,13 @@ import NavigationPanelProjects from '../NavigationPanelProjects/NavigationPanelP
 
 const navigationPanelBeneficiary = (props) => (
     <div>
-        <a><h4 className="text-light ml-2" onClick={props.clicked}>{props.name}</h4></a>
+        <h4 className="text-light ml-2" onClick={props.clicked}>{props.name}</h4>
         <ul><NavigationPanelProjects
             beneficiaryId={props.id}
             selectedTask={(task) => props.selectedTask(task)}
-            clickProject={(project) => props.clickProject(project)}/></ul>
+            // clickProject={(project) => props.clickProject(project)}
+            />
+            </ul>
     </div>
 )
 
