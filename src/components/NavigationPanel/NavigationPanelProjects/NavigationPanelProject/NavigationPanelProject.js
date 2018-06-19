@@ -6,7 +6,7 @@ import NavigationPanelTasks from '../../NavigationPanelTasks/NavigationPanelTask
 const navigationPanelProject = (props) => (
     <div>
         <NavLink
-            to={'/manager/' + props.projectId}>
+            to={'/manager/project/' + props.projectId}>
             <h6>{props.name}</h6>
         </NavLink>
         <ul>
