@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Project from '../Projects/Project/Project';
 import Tasks from '../Tasks/Tasks';
+import ManagerNavigationPanel from '../NavigationPanel/ManagerNavigationPanel/ManagerNavigationPanel';
 
 class SelectedProject extends Component {
     state = {
@@ -47,13 +48,13 @@ class SelectedProject extends Component {
             // console.log(this.state.selectedProject);
             // console.log(this.state.previousProject);
             axios.get('http://localhost:8080/projects/' + this.props.match.params.id)
-            .then(response => {
-                this.setState({ selectedProject: response.data, previousId: this.props.match.params.id });
-            });
+                .then(response => {
+                    this.setState({ selectedProject: response.data, previousId: this.props.match.params.id });
+                });
             axios.get('http://localhost:8080/tasks/project/' + this.props.match.params.id)
-            .then(response => {
-                this.setState({ projectTasks: response.data });
-            });
+                .then(response => {
+                    this.setState({ projectTasks: response.data });
+                });
             const previousProject = this.state.selectedProject;
             this.setState({ previousProject: previousProject });
             console.log('after ' + this.state.previousId);
@@ -66,15 +67,20 @@ class SelectedProject extends Component {
         if (this.state.selectedProject && this.state.projectTasks) {
             // console.log(this.state.selectedProject.name);
             selectedProject = (
-                <div>
-                    <div className="card-deck"><Project
-                        name={this.state.selectedProject.name}
-                        voivodeship={this.state.selectedProject.voivodeship} /></div>
-                    <br />
-                    <Tasks
-                        tasks={this.state.projectTasks}
-                        selectedTask={(selectedTask) => this.selectedTask(selectedTask)}
-                    />
+                <div className="row">
+                    <div className="col-sm-5 col-md-4 col-lg-3 col-xl-2 bg-info">
+                        <ManagerNavigationPanel />
+                    </div>
+                    <div className="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                        <div className="card-deck"><Project
+                            name={this.state.selectedProject.name}
+                            voivodeship={this.state.selectedProject.voivodeship} /></div>
+                        <br />
+                        <Tasks
+                            tasks={this.state.projectTasks}
+                            selectedTask={(selectedTask) => this.selectedTask(selectedTask)}
+                        />
+                    </div>
                 </div>
             )
         }
