@@ -4,6 +4,7 @@ import axios from 'axios';
 import Project from '../Projects/Project/Project';
 import Tasks from '../Tasks/Tasks';
 import ManagerNavigationPanel from '../NavigationPanel/ManagerNavigationPanel/ManagerNavigationPanel';
+import Layout from '../Layout/Layout';
 
 class SelectedProject extends Component {
     state = {
@@ -63,29 +64,25 @@ class SelectedProject extends Component {
 
     render() {
         let selectedProject = <p>Projekt do wyboru</p>
+        let managerNavigationPanel = <ManagerNavigationPanel />
 
         if (this.state.selectedProject && this.state.projectTasks) {
             // console.log(this.state.selectedProject.name);
             selectedProject = (
-                <div className="row">
-                    <div className="col-sm-5 col-md-4 col-lg-3 col-xl-2 bg-info">
-                        <ManagerNavigationPanel />
-                    </div>
-                    <div className="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                        <div className="card-deck"><Project
+                <div>
+                    <Project
                             name={this.state.selectedProject.name}
-                            voivodeship={this.state.selectedProject.voivodeship} /></div>
+                            voivodeship={this.state.selectedProject.voivodeship} />
                         <br />
                         <Tasks
                             tasks={this.state.projectTasks}
                             selectedTask={(selectedTask) => this.selectedTask(selectedTask)}
                         />
-                    </div>
                 </div>
             )
         }
         return (
-            selectedProject
+            <Layout navigation = {managerNavigationPanel} >{selectedProject}</Layout>
         )
     }
 }

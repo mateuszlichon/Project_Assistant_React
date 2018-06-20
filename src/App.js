@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import ProjectManager from './containers/ProjectManager/ProjectManager';
@@ -12,9 +12,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <NavigationBar />
-          <ProjectManager />
+          {/* <ProjectManager /> */}
           {/* <Route path="/" exact component={ProjectManager} /> */}
-          <Route path="/manager/project/:id" exact component={SelectedProject} />
+          {/* <Switch> */}
+            <Route path="/manager/project/:id" exact component={SelectedProject} />
+            <Route path="/" exact component={ProjectManager} />
+          {/* </Switch> */}
         </div>
       </BrowserRouter>
     );
