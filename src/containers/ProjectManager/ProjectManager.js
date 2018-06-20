@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
-import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
-import SelectedBeneficiary from '../../components/SelectedComponents/SelectedBeneficiary';
-import SelectedProject from '../../components/SelectedComponents/SelectedProject';
-import SelectedTask from '../../components/SelectedComponents/SelectedTask';
+// import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
+// import SelectedBeneficiary from '../../components/SelectedComponents/SelectedBeneficiary';
+// import SelectedProject from '../../components/SelectedComponents/SelectedProject';
+// import SelectedTask from '../../components/SelectedComponents/SelectedTask';
 import Layout from '../../components/Layout/Layout';
 import ManagerNavigationPanel from '../../components/NavigationPanel/ManagerNavigationPanel/ManagerNavigationPanel';
 

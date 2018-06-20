@@ -9,12 +9,12 @@ const managerNavigationBeneficiary = (props) => (
             to={'/manager/beneficiary/' + props.beneficiaryId}>
             <h4>{props.name}</h4>
         </NavLink>
-        {/* <ul><ManagerNavigationProjects
-            beneficiaryId={props.id}
+        <ul><ManagerNavigationProjects
+            beneficiaryId={props.beneficiaryId}
             // selectedTask={(task) => props.selectedTask(task)}
             // clickProject={(project) => props.clickProject(project)}
             />
-            </ul> */}
+            </ul>
     </div>
 )
 
