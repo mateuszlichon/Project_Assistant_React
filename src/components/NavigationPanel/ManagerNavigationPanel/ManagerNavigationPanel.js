@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import NavigationPanel from '../../NavigationPanel/NavigationPanel';
-import SelectedBeneficiary from '../../SelectedComponents/SelectedBeneficiary';
-import SelectedProject from '../../SelectedComponents/SelectedProject';
-import SelectedTask from '../../SelectedComponents/SelectedTask';
+import ManagerNavigationBeneficiaries from './ManagerNavigationBeneficiaries/ManagerNavigationBeneficiaries';
+// import SelectedBeneficiary from '../../SelectedComponents/SelectedBeneficiary';
+// import SelectedProject from '../../SelectedComponents/SelectedProject';
+// import SelectedTask from '../../SelectedComponents/SelectedTask';
 
 class ManagerNavigationPanel extends Component {
     state = {
@@ -21,7 +21,7 @@ class ManagerNavigationPanel extends Component {
 
     render() {
         return (
-            <NavigationPanel
+            <ManagerNavigationBeneficiaries
                 beneficiaries={this.state.beneficiaries}
             />
         )
