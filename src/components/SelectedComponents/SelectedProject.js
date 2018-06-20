@@ -82,7 +82,7 @@ class SelectedProject extends Component {
             )
         }
         return (
-            <Layout navigation = {managerNavigationPanel} >{selectedProject}</Layout>
+            selectedProject
         )
     }
 }

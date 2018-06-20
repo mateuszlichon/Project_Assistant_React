@@ -80,7 +80,7 @@ class SelectedBeneficiary extends Component {
             )
         }
         return (
-            <Layout navigation={managerNavigationPanel} >{selectedBeneficiary}</Layout>
+            selectedBeneficiary
         )
     }
 

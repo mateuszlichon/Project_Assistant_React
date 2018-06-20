@@ -14,13 +14,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <NavigationBar />
-          {/* <ProjectManager /> */}
+          <ProjectManager />
           {/* <Route path="/" exact component={ProjectManager} /> */}
           {/* <Switch> */}
-          <Route path="/manager/task/:id" exact component={SelectedTask} />
-          <Route path="/manager/beneficiary/:id" exact component={SelectedBeneficiary} />
-          <Route path="/manager/project/:id" exact component={SelectedProject} />
-          <Route path="/" exact component={ProjectManager} />
+          {/* <Route path="/" exact component={ProjectManager} /> */}
           {/* </Switch> */}
         </div>
       </BrowserRouter>
