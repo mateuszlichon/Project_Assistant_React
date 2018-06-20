@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import NavigationPanelTasks from '../../ManagerNavigationTasks/ManagerNavigationTasks';
+import ManagerNavigationTasks from '../../ManagerNavigationTasks/ManagerNavigationTasks';
 
 const managerNavigationProject = (props) => (
     <div>
@@ -10,9 +10,8 @@ const managerNavigationProject = (props) => (
             <h6>{props.name}</h6>
         </NavLink>
         <ul>
-            {/* <NavigationPanelTasks
-                projectId={props.projectId}
-                selectedTask={(task) => props.selectedTask(task)} /> */}
+            <ManagerNavigationTasks
+                projectId={props.projectId} />
         </ul>
     </div>
 )
