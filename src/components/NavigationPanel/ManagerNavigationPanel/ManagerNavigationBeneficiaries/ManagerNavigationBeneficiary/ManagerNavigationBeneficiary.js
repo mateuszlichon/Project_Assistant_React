@@ -1,13 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-// import NavigationPanelProjects from '../NavigationPanelProjects/NavigationPanelProjects';
+import ManagerNavigationProjects from '../../ManagerNavigationProjects/ManagerNavigationProjects';
 
 const managerNavigationBeneficiary = (props) => (
     <div>
-        <h4 className="text-light ml-2" onClick={props.clicked}>{props.name}</h4>
-        {/* <ul><NavigationPanelProjects
+        <NavLink
+            to={'/manager/beneficiary/' + props.beneficiaryId}>
+            <h4>{props.name}</h4>
+        </NavLink>
+        {/* <ul><ManagerNavigationProjects
             beneficiaryId={props.id}
-            selectedTask={(task) => props.selectedTask(task)}
+            // selectedTask={(task) => props.selectedTask(task)}
             // clickProject={(project) => props.clickProject(project)}
             />
             </ul> */}

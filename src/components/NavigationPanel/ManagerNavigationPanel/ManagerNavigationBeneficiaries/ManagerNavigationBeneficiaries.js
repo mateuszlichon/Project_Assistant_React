@@ -8,7 +8,7 @@ const managerNavigationBeneficiaries = (props) => {
             return <ManagerNavigationBeneficiary
                 key={beneficiary.id}
                 name={beneficiary.name}
-                id={beneficiary.id}
+                beneficiaryId={beneficiary.id}
                 />
 
         });
