@@ -4,9 +4,6 @@ import './App.css';
 
 import ProjectManager from './containers/ProjectManager/ProjectManager';
 import NavigationBar from './components/NavigationBar/NavigationBar';
-import SelectedBeneficiary from './components/SelectedComponents/SelectedBeneficiary';
-import SelectedProject from './components/SelectedComponents/SelectedProject';
-import SelectedTask from './components/SelectedComponents/SelectedTask';
 
 class App extends Component {
   render() {
@@ -14,11 +11,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <NavigationBar />
-          <ProjectManager />
-          {/* <Route path="/" exact component={ProjectManager} /> */}
-          {/* <Switch> */}
-          {/* <Route path="/" exact component={ProjectManager} /> */}
-          {/* </Switch> */}
+          <Route path="/" component={ProjectManager} />
         </div>
       </BrowserRouter>
     );

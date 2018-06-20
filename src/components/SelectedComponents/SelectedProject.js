@@ -3,8 +3,6 @@ import axios from 'axios';
 
 import Project from '../Projects/Project/Project';
 import Tasks from '../Tasks/Tasks';
-import ManagerNavigationPanel from '../NavigationPanel/ManagerNavigationPanel/ManagerNavigationPanel';
-import Layout from '../Layout/Layout';
 
 class SelectedProject extends Component {
     state = {
@@ -13,10 +11,6 @@ class SelectedProject extends Component {
         selectedProject: null,
         projectTasks: null
     }
-
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return this.state.previousId !== this.props.match.params.id;
-    // }
 
     componentDidMount() {
         console.log('mount');
@@ -64,7 +58,6 @@ class SelectedProject extends Component {
 
     render() {
         let selectedProject = <p>Projekt do wyboru</p>
-        let managerNavigationPanel = <ManagerNavigationPanel />
 
         if (this.state.selectedProject && this.state.projectTasks) {
             // console.log(this.state.selectedProject.name);

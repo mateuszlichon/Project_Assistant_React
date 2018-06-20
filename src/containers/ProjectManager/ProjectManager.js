@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-import Layout from '../../components/Layout/Layout';
 import ManagerNavigationPanel from '../../components/NavigationPanel/ManagerNavigationPanel/ManagerNavigationPanel';
 import SelectedBeneficiary from '../../components/SelectedComponents/SelectedBeneficiary';
 import SelectedProject from '../../components/SelectedComponents/SelectedProject';
@@ -9,9 +8,6 @@ import SelectedTask from '../../components/SelectedComponents/SelectedTask';
 
 class ProjectManager extends Component {
     render() {
-        let managerNavigationPanel = <ManagerNavigationPanel />
-        let pageOutput = <h3>@Ekran powitalny i wiadomości porównawcze@</h3>
-
         return (
             <div className="row">
                 <div className="col-sm-5 col-md-4 col-lg-3 col-xl-2 bg-info">

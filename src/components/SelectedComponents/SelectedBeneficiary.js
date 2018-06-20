@@ -3,8 +3,6 @@ import axios from 'axios';
 
 import Beneficiary from '../Beneficiary/Beneficiary';
 import Projects from '../Projects/Projects';
-import ManagerNavigationPanel from '../NavigationPanel/ManagerNavigationPanel/ManagerNavigationPanel';
-import Layout from '../Layout/Layout';
 
 class SelectedBeneficiary extends Component {
     state = {
@@ -35,16 +33,9 @@ class SelectedBeneficiary extends Component {
     }
 
     componentDidUpdate() {
-        console.log('update start');
-
         if (this.state.selectedBeneficiary !== null && (this.state.selectedBeneficiary !== this.state.previousBeneficiary) && this.state.previousId !== this.props.match.params.id) {
             const previousId = this.props.match.params.id;
             this.setState({ previousId: previousId });
-            console.log('update during');
-            console.log('before ' + this.state.previousId);
-            console.log(this.props.match.params.id);
-            // console.log(this.state.selectedProject);
-            // console.log(this.state.previousProject);
             axios.get('http://localhost:8080/beneficiaries/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ selectedBeneficiary: response.data });
@@ -55,16 +46,13 @@ class SelectedBeneficiary extends Component {
                 });
             const previousBeneficiary = this.state.selectedBeneficiary;
             this.setState({ previousBeneficiary: previousBeneficiary });
-            console.log('after ' + this.state.previousId);
         }
     }
 
     render() {
         let selectedBeneficiary = <p>Projekt do wyboru</p>
-        let managerNavigationPanel = <ManagerNavigationPanel />
 
         if (this.state.selectedBeneficiary && this.state.beneficiaryProjects) {
-            // console.log(this.state.selectedProject.name);
             selectedBeneficiary = (
                 <div>
                     <Beneficiary
@@ -74,7 +62,6 @@ class SelectedBeneficiary extends Component {
                     <br />
                     <Projects
                         projects={this.state.beneficiaryProjects}
-                        // clickProject={(project) => props.clickProject(project)}
                     />
                 </div>
             )
@@ -84,7 +71,7 @@ class SelectedBeneficiary extends Component {
         )
     }
 
-} 
+}
 
 // = (props) => {
 //     let beneficiaryOutput = <p>@Beneficjent nie wybrany. Wyświetlić podsumowania@</p>
