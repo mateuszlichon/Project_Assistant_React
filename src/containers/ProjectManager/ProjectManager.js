@@ -14,9 +14,11 @@ class ProjectManager extends Component {
                     <ManagerNavigationPanel />
                 </div>
                 <div className="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <Route path="/manager/task/:id" exact component={SelectedTask} />
-                    <Route path="/manager/beneficiary/:id" exact component={SelectedBeneficiary} />
-                    <Route path="/manager/project/:id" exact component={SelectedProject} />
+                    <div className="container">
+                        <Route path="/manager/task/:id" exact component={SelectedTask} />
+                        <Route path="/manager/beneficiary/:id" exact component={SelectedBeneficiary} />
+                        <Route path="/manager/project/:id" exact component={SelectedProject} />
+                    </div>
                 </div>
             </div>
             // <Layout navigation={managerNavigationPanel} >{pageOutput}</Layout>

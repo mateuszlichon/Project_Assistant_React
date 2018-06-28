@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../../../../axios-base';
 // import { NavLink } from 'react-router-dom';
 
 import ManagerNavigationProject from './ManagerNavigationProject/ManagerNavigationProject';
@@ -10,7 +10,7 @@ class ManagerNavigationProjects extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/projects/beneficiary/' + this.props.beneficiaryId)
+        axios.get('/projects/beneficiary/' + this.props.beneficiaryId)
             .then(response => {
                 this.setState({ projects: response.data });
             });

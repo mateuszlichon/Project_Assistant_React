@@ -11,8 +11,6 @@ const managerNavigationBeneficiary = (props) => (
         </NavLink>
         <ul><ManagerNavigationProjects
             beneficiaryId={props.beneficiaryId}
-            // selectedTask={(task) => props.selectedTask(task)}
-            // clickProject={(project) => props.clickProject(project)}
             />
             </ul>
     </div>

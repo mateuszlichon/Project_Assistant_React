@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../../../axios-base';
 
 import ManagerNavigationBeneficiaries from './ManagerNavigationBeneficiaries/ManagerNavigationBeneficiaries';
 // import SelectedBeneficiary from '../../SelectedComponents/SelectedBeneficiary';
@@ -12,7 +12,7 @@ class ManagerNavigationPanel extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/beneficiaries')
+        axios.get('/beneficiaries')
             .then(response => {
                 const beneficiaries = response.data;
                 this.setState({ beneficiaries: beneficiaries });

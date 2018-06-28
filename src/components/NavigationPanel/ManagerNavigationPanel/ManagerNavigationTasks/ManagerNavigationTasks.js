@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../../../../axios-base';
 
 import ManagerNavigationTask from './ManagerNavigationTask/ManagerNavigationTask';
 
@@ -9,7 +9,7 @@ class ManagerNavigationTasks extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/tasks/project/' + this.props.projectId)
+        axios.get('/tasks/project/' + this.props.projectId)
             .then(response => {
                 this.setState({ tasks: response.data });
             });
