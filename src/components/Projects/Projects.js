@@ -7,8 +7,7 @@ const projects = (props) => {
     if (props.projects.length > 0) {
         projects = props.projects.map(response => {
             return <Project
-                name={response.name}
-                voivodeship={response.voivodeship}
+                project={response}
                 key={response.id}
                 clickProject={() => props.clickProject(response)}
                 />
