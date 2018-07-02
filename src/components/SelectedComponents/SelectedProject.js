@@ -4,6 +4,7 @@ import axios from '../../axios-base';
 import Project from '../Projects/Project/Project';
 import Tasks from '../Tasks/Tasks';
 import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
+import EditProject from '../EditFunction/EditProject/EditProject';
 
 class SelectedProject extends Component {
     state = {
@@ -11,7 +12,8 @@ class SelectedProject extends Component {
         previousId: null,
         selectedProject: null,
         projectTasks: null,
-        deleteProject: null
+        deleteProject: null,
+        editProject: null
     }
 
     componentDidMount() {
@@ -62,25 +64,34 @@ class SelectedProject extends Component {
         this.setState({deleteProject: deleteProject});
     }
 
+    editProjectHandler = (editProject) => {
+        this.setState({editProject: editProject})
+    }
+
     backdropCancelHandler = () => {
-        this.setState({deleteProject: null});
+        this.setState({deleteProject: null, editProject: null});
     }
 
     render() {
         let selectedProject = <p>Projekt do wyboru</p>;
-        let deleteProject = null;
+        let options = null;
         if (this.state.deleteProject) {
-            deleteProject = <DeleteProject deleteProject={this.state.deleteProject} backdropCancel={this.backdropCancelHandler} />
+            options = <DeleteProject deleteProject={this.state.deleteProject} backdropCancel={this.backdropCancelHandler} />
+        }
+
+        if (this.state.editProject) {
+            options = <EditProject editProject={this.state.editProject} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.selectedProject && this.state.projectTasks) {
             // console.log(this.state.selectedProject.name);
             selectedProject = (
                 <div>
-                    {deleteProject}
+                    {options}
                     <Project
                         project={this.state.selectedProject}
                         deleteProject={(deleteProject) => this.deleteProjectHandler(deleteProject)}
+                        editProject={(editProject) => this.editProjectHandler(editProject)}
                     />
                     <br />
                     <Tasks

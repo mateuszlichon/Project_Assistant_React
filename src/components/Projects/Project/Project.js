@@ -7,7 +7,7 @@ const project = (props) => (
         <p className="card-text">województwo: {props.project.voivodeship}</p>
             <p className="card-text">@jakieś informacje o projekcie@</p>
             <a className="btn btn-danger" onClick={() => props.deleteProject (props.project)}>Usuń projekt</a>
-            <a className="btn btn-warning">Edytuj projekt</a>
+            <a className="btn btn-warning" onClick={() => props.editProject (props.project)}>Edytuj projekt</a>
         </div>
         <div className="card-footer text-muted">@Stopka z innymi informacjami@</div>
     </div>

@@ -11,6 +11,7 @@ const projects = (props) => {
                 key={response.id}
                 clickProject={() => props.clickProject(response)}
                 deleteProject={(deleteProject) => props.deleteProject(deleteProject)}
+                editProject={(editProject) => props.editProject(editProject)}
                 />
         })
     }
