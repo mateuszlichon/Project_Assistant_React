@@ -80,7 +80,7 @@ class SelectedProject extends Component {
                     {deleteProject}
                     <Project
                         project={this.state.selectedProject}
-                        deleteProject={() => this.deleteProjectHandler(this.state.selectedProject)}
+                        deleteProject={(deleteProject) => this.deleteProjectHandler(deleteProject)}
                     />
                     <br />
                     <Tasks

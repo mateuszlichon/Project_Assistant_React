@@ -10,6 +10,7 @@ const projects = (props) => {
                 project={response}
                 key={response.id}
                 clickProject={() => props.clickProject(response)}
+                deleteProject={(deleteProject) => props.deleteProject(deleteProject)}
                 />
         })
     }
