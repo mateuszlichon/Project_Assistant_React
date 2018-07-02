@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import DeleteFunction from '../DeleteFunction';
+import Modal from '../../UI/Modal/Modal';
 
 class DeleteProject extends Component {
     render() {
         return (
-            <DeleteFunction backdropCancel={this.props.backdropCancel}>
-                Projekt do skasowania: {this.props.deleteProject.name}
-            </DeleteFunction>
+            <Modal backdropCancel={this.props.backdropCancel}>
+                <div>
+                    <p>Został wskazany do skasowania projekt: {this.props.deleteProject.name}</p>
+                    <p>Od tej operacji nie będzie odwotu</p>
+                    <p>Czy kontynuować?</p>
+                </div>
+            </Modal>
         )
     }
 }
