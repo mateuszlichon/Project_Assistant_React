@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../../axios-base';
 
 import Beneficiary from '../Beneficiary/Beneficiary';
 import Projects from '../Projects/Projects';
@@ -17,11 +17,11 @@ class SelectedBeneficiary extends Component {
         const previousId = this.props.match.params.id;
         this.setState({ previousId: previousId });
         if (!this.state.selectedBeneficiary) {
-            axios.get('http://localhost:8080/beneficiaries/' + this.props.match.params.id)
+            axios.get('/beneficiaries/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ selectedBeneficiary: response.data });
                 });
-            axios.get('http://localhost:8080/projects/beneficiary/' + this.props.match.params.id)
+            axios.get('/projects/beneficiary/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ beneficiaryProjects: response.data });
                 });
@@ -36,11 +36,11 @@ class SelectedBeneficiary extends Component {
         if (this.state.selectedBeneficiary !== null && (this.state.selectedBeneficiary !== this.state.previousBeneficiary) && this.state.previousId !== this.props.match.params.id) {
             const previousId = this.props.match.params.id;
             this.setState({ previousId: previousId });
-            axios.get('http://localhost:8080/beneficiaries/' + this.props.match.params.id)
+            axios.get('/beneficiaries/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ selectedBeneficiary: response.data });
                 });
-            axios.get('http://localhost:8080/projects/beneficiary/' + this.props.match.params.id)
+            axios.get('/projects/beneficiary/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ beneficiaryProjects: response.data });
                 });

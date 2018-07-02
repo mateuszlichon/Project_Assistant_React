@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../../axios-base';
 
 import Project from '../Projects/Project/Project';
 import Tasks from '../Tasks/Tasks';
+import Backdrop from '../UI/Backdrop/Backdrop';
 
 class SelectedProject extends Component {
     state = {
@@ -13,15 +14,15 @@ class SelectedProject extends Component {
     }
 
     componentDidMount() {
-        console.log('mount');
+        console.log('/projects/');
         const previousId = this.props.match.params.id;
         this.setState({ previousId: previousId });
         if (!this.state.selectedProject) {
-            axios.get('http://localhost:8080/projects/' + this.props.match.params.id)
+            axios.get('/projects/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ selectedProject: response.data });
                 });
-            axios.get('http://localhost:8080/tasks/project/' + this.props.match.params.id)
+            axios.get('/tasks/project/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ projectTasks: response.data });
                 });
@@ -42,11 +43,11 @@ class SelectedProject extends Component {
             console.log(this.props.match.params.id);
             // console.log(this.state.selectedProject);
             // console.log(this.state.previousProject);
-            axios.get('http://localhost:8080/projects/' + this.props.match.params.id)
+            axios.get('/projects/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ selectedProject: response.data, previousId: this.props.match.params.id });
                 });
-            axios.get('http://localhost:8080/tasks/project/' + this.props.match.params.id)
+            axios.get('/tasks/project/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ projectTasks: response.data });
                 });
@@ -63,6 +64,7 @@ class SelectedProject extends Component {
             // console.log(this.state.selectedProject.name);
             selectedProject = (
                 <div>
+                    <Backdrop />
                     <Project
                             name={this.state.selectedProject.name}
                             voivodeship={this.state.selectedProject.voivodeship} />

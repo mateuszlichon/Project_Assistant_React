@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../../axios-base';
 
 import Task from '../Tasks/Task/Task';
 
@@ -15,7 +15,7 @@ class SelectedTask extends Component {
         const previousId = this.props.match.params.id;
         this.setState({ previousId: previousId });
         if (!this.state.selectedTask) {
-            axios.get('http://localhost:8080/tasks/' + this.props.match.params.id)
+            axios.get('/tasks/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ selectedTask: response.data });
                 });
@@ -31,7 +31,7 @@ class SelectedTask extends Component {
         if (this.state.selectedTask !== null && (this.state.selectedTask !== this.state.previousTask) && this.state.previousId !== this.props.match.params.id) {
             const previousId = this.props.match.params.id;
             this.setState({ previousId: previousId });
-            axios.get('http://localhost:8080/tasks/' + this.props.match.params.id)
+            axios.get('/tasks/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ selectedTask: response.data });
                 });
