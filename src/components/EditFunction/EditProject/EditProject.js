@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import axios from '../../../axios-base';
 
 import Modal from '../../UI/Modal/Modal';
 
 class EditProject extends Component {
     state = {
+        id: this.props.editProject.id,
         name: this.props.editProject.name,
-        voivodeship: this.props.editProject.voivodeship
+        voivodeship: this.props.editProject.voivodeship,
+        beneficiary: this.props.editProject.beneficiary
     }
 
     nameChangeHandler = (e) => {
@@ -19,7 +22,23 @@ class EditProject extends Component {
         this.setState({ voivodeship: value });
     }
 
-    submitChangeHandler = () => {
+    submitChangeHandler = (e) => {
+        e.preventDefault();
+        const updatedProject = {
+            id: this.state.id,
+            name: this.state.name,
+            voivodeship: this.state.voivodeship,
+            beneficiary: this.state.beneficiary
+        }
+        axios.put('/projects', updatedProject)
+            .then(response => {
+                console.log(response);
+                // this.props.history.push('/manager');
+            })
+            .catch(error => {
+                console.log(error);
+                
+            })
         console.log(this.state.name);
         console.log(this.state.voivodeship);
     }

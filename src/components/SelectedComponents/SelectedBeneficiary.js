@@ -4,6 +4,7 @@ import axios from '../../axios-base';
 import Beneficiary from '../Beneficiary/Beneficiary';
 import Projects from '../Projects/Projects';
 import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
+import EditProject from '../EditFunction/EditProject/EditProject';
 
 class SelectedBeneficiary extends Component {
     state = {
@@ -11,7 +12,8 @@ class SelectedBeneficiary extends Component {
         selectedBeneficiary: null,
         previousId: null,
         beneficiaryProjects: null,
-        deleteProject: null
+        deleteProject: null,
+        editProject: null
     }
 
     componentDidMount() {
@@ -52,24 +54,32 @@ class SelectedBeneficiary extends Component {
     }
 
     deleteProjectHandler = (deleteProject) => {
-        this.setState({deleteProject: deleteProject});
+        this.setState({ deleteProject: deleteProject });
+    }
+
+    editProjectHandler = (editProject) => {
+        this.setState({ editProject: editProject })
     }
 
     backdropCancelHandler = () => {
-        this.setState({deleteProject: null});
+        this.setState({ deleteProject: null, editProject: null });
     }
 
     render() {
         let selectedBeneficiary = <p>Projekt do wyboru</p>
-        let deleteProject = null;
+        let options = null;
         if (this.state.deleteProject) {
-            deleteProject = <DeleteProject deleteProject={this.state.deleteProject} backdropCancel={this.backdropCancelHandler} />
+            options = <DeleteProject deleteProject={this.state.deleteProject} backdropCancel={this.backdropCancelHandler} />
+        }
+
+        if (this.state.editProject) {
+            options = <EditProject editProject={this.state.editProject} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.selectedBeneficiary && this.state.beneficiaryProjects) {
             selectedBeneficiary = (
                 <div>
-                    {deleteProject}
+                    {options}
                     <Beneficiary
                         key={this.state.selectedBeneficiary.id}
                         name={this.state.selectedBeneficiary.name}
@@ -78,6 +88,7 @@ class SelectedBeneficiary extends Component {
                     <Projects
                         projects={this.state.beneficiaryProjects}
                         deleteProject={(deleteProject) => this.deleteProjectHandler(deleteProject)}
+                        editProject={(editProject) => this.editProjectHandler(editProject)}
                     />
                 </div>
             )
