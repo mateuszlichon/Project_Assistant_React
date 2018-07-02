@@ -3,14 +3,15 @@ import axios from '../../axios-base';
 
 import Project from '../Projects/Project/Project';
 import Tasks from '../Tasks/Tasks';
-import Backdrop from '../UI/Backdrop/Backdrop';
+import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
 
 class SelectedProject extends Component {
     state = {
         previousProject: [],
         previousId: null,
         selectedProject: null,
-        projectTasks: null
+        projectTasks: null,
+        deleteProject: false
     }
 
     componentDidMount() {
@@ -57,22 +58,35 @@ class SelectedProject extends Component {
         }
     }
 
+    deleteProjectHandler = () => {
+        this.setState({deleteProject: true});
+    }
+
+    backdropCancelHandler = () => {
+        this.setState({deleteProject: false});
+    }
+
     render() {
-        let selectedProject = <p>Projekt do wyboru</p>
+        let selectedProject = <p>Projekt do wyboru</p>;
+        let deleteProject = null;
+        if (this.state.deleteProject) {
+            deleteProject = <DeleteProject backdropCancel={this.backdropCancelHandler} />
+        }
 
         if (this.state.selectedProject && this.state.projectTasks) {
             // console.log(this.state.selectedProject.name);
             selectedProject = (
                 <div>
-                    <Backdrop />
+                    {deleteProject}
                     <Project
-                            name={this.state.selectedProject.name}
-                            voivodeship={this.state.selectedProject.voivodeship} />
-                        <br />
-                        <Tasks
-                            tasks={this.state.projectTasks}
-                            selectedTask={(selectedTask) => this.selectedTask(selectedTask)}
-                        />
+                        project={this.state.selectedProject}
+                        deleteProject={this.deleteProjectHandler}
+                    />
+                    <br />
+                    <Tasks
+                        tasks={this.state.projectTasks}
+                        selectedTask={(selectedTask) => this.selectedTask(selectedTask)}
+                    />
                 </div>
             )
         }
