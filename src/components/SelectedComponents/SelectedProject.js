@@ -11,7 +11,7 @@ class SelectedProject extends Component {
         previousId: null,
         selectedProject: null,
         projectTasks: null,
-        deleteProject: false
+        deleteProject: null
     }
 
     componentDidMount() {
@@ -58,19 +58,19 @@ class SelectedProject extends Component {
         }
     }
 
-    deleteProjectHandler = () => {
-        this.setState({deleteProject: true});
+    deleteProjectHandler = (deleteProject) => {
+        this.setState({deleteProject: deleteProject});
     }
 
     backdropCancelHandler = () => {
-        this.setState({deleteProject: false});
+        this.setState({deleteProject: null});
     }
 
     render() {
         let selectedProject = <p>Projekt do wyboru</p>;
         let deleteProject = null;
         if (this.state.deleteProject) {
-            deleteProject = <DeleteProject backdropCancel={this.backdropCancelHandler} />
+            deleteProject = <DeleteProject deleteProject={this.state.deleteProject} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.selectedProject && this.state.projectTasks) {
@@ -80,7 +80,7 @@ class SelectedProject extends Component {
                     {deleteProject}
                     <Project
                         project={this.state.selectedProject}
-                        deleteProject={this.deleteProjectHandler}
+                        deleteProject={() => this.deleteProjectHandler(this.state.selectedProject)}
                     />
                     <br />
                     <Tasks

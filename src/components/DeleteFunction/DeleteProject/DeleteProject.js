@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Backdrop from '../../UI/Backdrop/Backdrop';
+import DeleteFunction from '../DeleteFunction';
 
 class DeleteProject extends Component {
     render() {
         return (
-            <div>
-                <Backdrop clicked={this.props.backdropCancel} />
-            </div>
+            <DeleteFunction backdropCancel={this.props.backdropCancel}>
+                Projekt do skasowania: {this.props.deleteProject.name}
+            </DeleteFunction>
         )
     }
 }
