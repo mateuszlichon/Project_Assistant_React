@@ -7,6 +7,7 @@ import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
 import EditProject from '../EditFunction/EditProject/EditProject';
 import DeleteBeneficiary from '../DeleteFunction/DeleteBeneficiary/DeleteBeneficiary';
 import EditBeneficiary from '../EditFunction/EditBeneficiary/EditBeneficiary';
+import AddProject from '../AddFunction/AddProject/AddProject';
 
 class SelectedBeneficiary extends Component {
     state = {
@@ -17,7 +18,8 @@ class SelectedBeneficiary extends Component {
         deleteBeneficiary: null,
         editBeneficiary: null,
         deleteProject: null,
-        editProject: null
+        editProject: null,
+        addProject: null
     }
 
     componentDidMount() {
@@ -57,6 +59,10 @@ class SelectedBeneficiary extends Component {
         }
     }
 
+    addProjectHandler = (beneficiary) => {
+        this.setState({ addProject: beneficiary });
+    }
+
     deleteProjectHandler = (deleteProject) => {
         this.setState({ deleteProject: deleteProject });
     }
@@ -88,6 +94,10 @@ class SelectedBeneficiary extends Component {
             options = <EditProject editProject={this.state.editProject} backdropCancel={this.backdropCancelHandler} />
         }
 
+        if (this.state.addProject) {
+            options = <AddProject beneficiary={this.state.addProject} backdropCancel={this.backdropCancelHandler} />
+        }
+
         if (this.state.deleteBeneficiary) {
             options = <DeleteBeneficiary deleteBeneficiary={this.state.deleteBeneficiary} backdropCancel={this.backdropCancelHandler} />
         }
@@ -105,6 +115,7 @@ class SelectedBeneficiary extends Component {
                         beneficiary={this.state.selectedBeneficiary}
                         deleteBeneficiary={(deleteBeneficiary) => this.deleteBeneficiaryHandler(deleteBeneficiary)}
                         editBeneficiary={(editBeneficiary) => this.editBeneficiaryHandler(editBeneficiary)}
+                        addProject={(beneficiary) => this.addProjectHandler(beneficiary)}
                     />
                     <br />
                     <Projects

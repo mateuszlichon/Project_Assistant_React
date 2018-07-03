@@ -10,7 +10,8 @@ const beneficiary = (props) => (
         <Panel.Body>
             <p>@jakieś informacje o beneficjencie@</p>
             <p><Button bsStyle="danger" onClick={() => props.deleteBeneficiary(props.beneficiary)}>Usuń Beneficjenta</Button>
-                <Button bsStyle="warning" onClick={() => props.editBeneficiary(props.beneficiary)}>Edytuj Beneficjenta</Button></p>
+                <Button bsStyle="warning" onClick={() => props.editBeneficiary(props.beneficiary)}>Edytuj Beneficjenta</Button>
+                <Button bsStyle="success" onClick={() => props.addProject(props.beneficiary)}>Dodaj projekt</Button></p>
         </Panel.Body>
     </Panel>
 )
