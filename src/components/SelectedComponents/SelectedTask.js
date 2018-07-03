@@ -3,6 +3,7 @@ import axios from '../../axios-base';
 
 import MainTask from '../Tasks/Task/MainTask';
 import DeleteTask from '../DeleteFunction/DeleteTask/DeleteTask';
+import EditTask from '../EditFunction/EditTask/EditTask';
 
 class SelectedTask extends Component {
     state = {
@@ -57,7 +58,7 @@ class SelectedTask extends Component {
         }
 
         if (this.state.editTask) {
-            // options = <EditTask editTask={this.state.editTask} backdropCancel={this.backdropCancelHandler} />
+            options = <EditTask editTask={this.state.editTask} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.selectedTask) {

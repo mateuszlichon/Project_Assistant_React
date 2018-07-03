@@ -6,6 +6,7 @@ import Tasks from '../Tasks/Tasks';
 import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
 import EditProject from '../EditFunction/EditProject/EditProject';
 import DeleteTask from '../DeleteFunction/DeleteTask/DeleteTask';
+import EditTask from '../EditFunction/EditTask/EditTask';
 
 class SelectedProject extends Component {
     state = {
@@ -82,13 +83,13 @@ class SelectedProject extends Component {
         if (this.state.editProject) {
             options = <EditProject editProject={this.state.editProject} backdropCancel={this.backdropCancelHandler} />
         }
-        
+
         if (this.state.deleteTask) {
             options = <DeleteTask deleteTask={this.state.deleteTask} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.editTask) {
-            // options = <EditTask editTask={this.state.editTask} backdropCancel={this.backdropCancelHandler} />
+            options = <EditTask editTask={this.state.editTask} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.selectedProject && this.state.projectTasks) {
