@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from 'react-bootstrap';
+import { Panel, Button } from 'react-bootstrap';
 
 const project = (props) => (
     // <div>
@@ -16,7 +16,11 @@ const project = (props) => (
         <Panel.Heading>
             <Panel.Title componentClass="h3">nazwa: {props.project.name}</Panel.Title>
         </Panel.Heading>
-        <Panel.Body>województwo: {props.project.voivodeship}</Panel.Body>
+        <Panel.Body>
+            <p>województwo: {props.project.voivodeship}</p>
+            <p><Button bsStyle="danger" onClick={() => props.deleteProject(props.project)}>Usuń projekt</Button>
+                <Button bsStyle="warning" onClick={() => props.editProject(props.project)}>Edytuj projekt</Button></p>
+        </Panel.Body>
     </Panel>
 )
 

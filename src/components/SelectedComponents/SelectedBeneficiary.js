@@ -82,7 +82,7 @@ class SelectedBeneficiary extends Component {
                     {options}
                     <Beneficiary
                         key={this.state.selectedBeneficiary.id}
-                        name={this.state.selectedBeneficiary.name}
+                        beneficiary={this.state.selectedBeneficiary}
                     />
                     <br />
                     <Projects
