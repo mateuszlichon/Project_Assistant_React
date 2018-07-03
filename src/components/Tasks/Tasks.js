@@ -8,9 +8,7 @@ const tasks = (props) => {
     if (props.tasks.length > 0) {
         tasks = props.tasks.map(response => {
             return <Task
-                name={response.name}
-                groupAmount={response.groupAmount}
-                participantAmount={response.participantAmount}
+                task={response}
                 selectedTask={() => props.selectedTask(response)}
                 // voivodeship={response.voivodeship}
                 key={response.id} />

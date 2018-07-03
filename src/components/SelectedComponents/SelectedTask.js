@@ -49,9 +49,7 @@ class SelectedTask extends Component {
                 <div>
                     <MainTask
                         key={this.state.selectedTask.id}
-                        name={this.state.selectedTask.name}
-                        groupAmount={this.state.selectedTask.groupAmount}
-                        participantAmount={this.state.selectedTask.participantAmount}
+                        task={this.state.selectedTask}
                     />;
                 </div>
             )
