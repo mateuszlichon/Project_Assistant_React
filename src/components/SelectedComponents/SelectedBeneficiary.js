@@ -8,6 +8,7 @@ import EditProject from '../EditFunction/EditProject/EditProject';
 import DeleteBeneficiary from '../DeleteFunction/DeleteBeneficiary/DeleteBeneficiary';
 import EditBeneficiary from '../EditFunction/EditBeneficiary/EditBeneficiary';
 import AddProject from '../AddFunction/AddProject/AddProject';
+import Spinner from '../UI/Spinner/Spinner';
 
 class SelectedBeneficiary extends Component {
     state = {
@@ -84,7 +85,7 @@ class SelectedBeneficiary extends Component {
     }
 
     render() {
-        let selectedBeneficiary = <p>Projekt do wyboru</p>
+        let selectedBeneficiary = <Spinner />
         let options = null;
         if (this.state.deleteProject) {
             options = <DeleteProject deleteProject={this.state.deleteProject} backdropCancel={this.backdropCancelHandler} />
