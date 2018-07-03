@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../axios-base';
 
-import Project from '../Projects/Project/Project';
+import MainProject from '../Projects/Project/MainProject';
 import Tasks from '../Tasks/Tasks';
 import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
 import EditProject from '../EditFunction/EditProject/EditProject';
@@ -88,7 +88,7 @@ class SelectedProject extends Component {
             selectedProject = (
                 <div>
                     {options}
-                    <Project
+                    <MainProject
                         project={this.state.selectedProject}
                         deleteProject={(deleteProject) => this.deleteProjectHandler(deleteProject)}
                         editProject={(editProject) => this.editProjectHandler(editProject)}

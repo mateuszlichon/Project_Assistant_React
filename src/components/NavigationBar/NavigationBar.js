@@ -1,24 +1,27 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+
+import './NavigationBar.css';
 
 const navigationBar = () => (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-        <a className="navbar-brand" href="">Project Assistant</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarColor01">
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                    <NavLink to='/user/' className="nav-link">Panel użytkownika</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to='/manager/' className="nav-link">Panel administratora</NavLink>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <Navbar inverse collapseOnSelect id="main-navigation-bar">
+        <Navbar.Header>
+            <Navbar.Brand>
+                <a href="#brand">Project Assistant</a>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+            <Nav pullRight>
+                <NavItem eventKey={1} href='/user/'>
+                    Panel użytkownika
+      </NavItem>
+                <NavItem eventKey={2} href='/manager/'>
+                    Panel administratora
+      </NavItem>
+            </Nav>
+        </Navbar.Collapse>
+    </Navbar>
 )
 
 export default navigationBar;

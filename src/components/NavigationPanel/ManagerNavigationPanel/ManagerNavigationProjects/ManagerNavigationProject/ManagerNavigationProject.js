@@ -7,7 +7,7 @@ const managerNavigationProject = (props) => (
     <div>
         <NavLink
             to={'/manager/project/' + props.projectId}>
-            <h6>{props.name}</h6>
+            <h4>{props.name}</h4>
         </NavLink>
         <ul>
             <ManagerNavigationTasks

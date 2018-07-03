@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../axios-base';
 
-import Task from '../Tasks/Task/Task';
+import MainTask from '../Tasks/Task/MainTask';
 
 class SelectedTask extends Component {
     state = {
@@ -47,7 +47,7 @@ class SelectedTask extends Component {
             // console.log(this.state.selectedProject.name);
             selectedTask = (
                 <div>
-                    <Task
+                    <MainTask
                         key={this.state.selectedTask.id}
                         name={this.state.selectedTask.name}
                         groupAmount={this.state.selectedTask.groupAmount}

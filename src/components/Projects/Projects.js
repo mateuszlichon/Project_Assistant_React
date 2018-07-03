@@ -1,4 +1,5 @@
 import React from 'react';
+import {PanelGroup} from 'react-bootstrap';
 
 import Project from './Project/Project';
 
@@ -16,7 +17,7 @@ const projects = (props) => {
         })
     }
 
-    return (<div className="card-deck">{projects}</div>);
+    return (<PanelGroup accordion id="projects">{projects}</PanelGroup>);
 }
 
 export default projects;

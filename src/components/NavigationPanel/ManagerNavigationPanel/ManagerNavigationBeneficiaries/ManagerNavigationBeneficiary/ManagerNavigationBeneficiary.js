@@ -7,7 +7,7 @@ const managerNavigationBeneficiary = (props) => (
     <div>
         <NavLink
             to={'/manager/beneficiary/' + props.beneficiaryId}>
-            <h4>{props.name}</h4>
+            <h3>{props.name}</h3>
         </NavLink>
         <ul><ManagerNavigationProjects
             beneficiaryId={props.beneficiaryId}

@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import axios from '../../../axios-base';
 
 import ManagerNavigationBeneficiaries from './ManagerNavigationBeneficiaries/ManagerNavigationBeneficiaries';
-// import SelectedBeneficiary from '../../SelectedComponents/SelectedBeneficiary';
-// import SelectedProject from '../../SelectedComponents/SelectedProject';
-// import SelectedTask from '../../SelectedComponents/SelectedTask';
 
 class ManagerNavigationPanel extends Component {
     state = {
