@@ -82,6 +82,7 @@ class SelectedProject extends Component {
         if (this.state.editProject) {
             options = <EditProject editProject={this.state.editProject} backdropCancel={this.backdropCancelHandler} />
         }
+        
         if (this.state.deleteTask) {
             options = <DeleteTask deleteTask={this.state.deleteTask} backdropCancel={this.backdropCancelHandler} />
         }
