@@ -10,7 +10,10 @@ const tasks = (props) => {
             return <Task
                 task={response}
                 selectedTask={() => props.selectedTask(response)}
-                key={response.id} />
+                key={response.id}
+                deleteTask={(deleteTask) => props.deleteTask(deleteTask)}
+                editTask={(editTask) => props.editTask(editTask)}
+                />
         })
     }
 

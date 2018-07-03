@@ -5,6 +5,7 @@ import MainProject from '../Projects/Project/MainProject';
 import Tasks from '../Tasks/Tasks';
 import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
 import EditProject from '../EditFunction/EditProject/EditProject';
+import DeleteTask from '../DeleteFunction/DeleteTask/DeleteTask';
 
 class SelectedProject extends Component {
     state = {
@@ -13,7 +14,9 @@ class SelectedProject extends Component {
         selectedProject: null,
         projectTasks: null,
         deleteProject: null,
-        editProject: null
+        editProject: null,
+        deleteTask: null,
+        editTask: null
     }
 
     componentDidMount() {
@@ -57,8 +60,16 @@ class SelectedProject extends Component {
         this.setState({ editProject: editProject })
     }
 
+    deleteTaskHandler = (deleteTask) => {
+        this.setState({ deleteTask: deleteTask });
+    }
+
+    editTaskHandler = (editTask) => {
+        this.setState({ editTask: editTask })
+    }
+
     backdropCancelHandler = () => {
-        this.setState({ deleteProject: null, editProject: null });
+        this.setState({ deleteProject: null, editProject: null, deleteTask: null, editTask: null });
     }
 
     render() {
@@ -70,6 +81,13 @@ class SelectedProject extends Component {
 
         if (this.state.editProject) {
             options = <EditProject editProject={this.state.editProject} backdropCancel={this.backdropCancelHandler} />
+        }
+        if (this.state.deleteTask) {
+            options = <DeleteTask deleteTask={this.state.deleteTask} backdropCancel={this.backdropCancelHandler} />
+        }
+
+        if (this.state.editTask) {
+            // options = <EditTask editTask={this.state.editTask} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.selectedProject && this.state.projectTasks) {
@@ -85,6 +103,8 @@ class SelectedProject extends Component {
                     <Tasks
                         tasks={this.state.projectTasks}
                         selectedTask={(selectedTask) => this.selectedTask(selectedTask)}
+                        deleteTask={(deleteTask) => this.deleteTaskHandler(deleteTask)}
+                        editTask={(editTask) => this.editTaskHandler(editTask)}
                     />
                 </div>
             )
