@@ -80,7 +80,7 @@ class SelectedBeneficiary extends Component {
     }
 
     backdropCancelHandler = () => {
-        this.setState({ deleteProject: null, editProject: null, deleteBeneficiary: null, editBeneficiary: null });
+        this.setState({ deleteProject: null, editProject: null, deleteBeneficiary: null, editBeneficiary: null, addProject:null });
     }
 
     render() {
