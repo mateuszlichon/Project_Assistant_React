@@ -46,8 +46,7 @@ class EditTask extends Component {
                 console.log(error);
 
             })
-        console.log(this.state.name);
-        console.log(this.state.groupAmount);
+            window.location.reload();
     }
 
     render() {
