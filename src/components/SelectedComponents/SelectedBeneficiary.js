@@ -100,23 +100,4 @@ class SelectedBeneficiary extends Component {
 
 }
 
-// = (props) => {
-//     let beneficiaryOutput = <p>@Beneficjent nie wybrany. Wyświetlić podsumowania@</p>
-//     if (props.selectedBeneficiary) {
-//         beneficiaryOutput = <Beneficiary
-//             key={props.selectedBeneficiary.id}
-//             name={props.selectedBeneficiary.name}
-//         />;
-//     }
-//     return (
-//         <div>
-//             <div className="card-deck">{beneficiaryOutput}</div>
-//             <br />
-//             <Projects
-//                 projects={props.beneficiaryProjects}
-//                 clickProject={(project) => props.clickProject(project)} />
-//         </div>
-//     )
-// }
-
 export default SelectedBeneficiary;

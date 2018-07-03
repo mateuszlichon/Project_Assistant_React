@@ -44,7 +44,6 @@ class SelectedTask extends Component {
         let selectedTask = <p>Projekt do wyboru</p>
 
         if (this.state.selectedTask) {
-            // console.log(this.state.selectedProject.name);
             selectedTask = (
                 <div>
                     <MainTask

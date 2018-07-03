@@ -10,7 +10,6 @@ const tasks = (props) => {
             return <Task
                 task={response}
                 selectedTask={() => props.selectedTask(response)}
-                // voivodeship={response.voivodeship}
                 key={response.id} />
         })
     }

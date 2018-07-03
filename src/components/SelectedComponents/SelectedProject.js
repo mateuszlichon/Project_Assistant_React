@@ -17,7 +17,6 @@ class SelectedProject extends Component {
     }
 
     componentDidMount() {
-        console.log('/projects/');
         const previousId = this.props.match.params.id;
         this.setState({ previousId: previousId });
         if (!this.state.selectedProject) {
@@ -30,9 +29,6 @@ class SelectedProject extends Component {
                     this.setState({ projectTasks: response.data });
                 });
         }
-        console.log(this.state.previousId);
-        console.log(previousId);
-        console.log(this.props.match.params.id);
 
     }
 
@@ -40,12 +36,6 @@ class SelectedProject extends Component {
         console.log('update start');
 
         if (this.state.selectedProject !== null && (this.state.selectedProject !== this.state.previousProject) && this.state.previousId !== this.props.match.params.id) {
-
-            console.log('update during');
-            console.log('before ' + this.state.previousId);
-            console.log(this.props.match.params.id);
-            // console.log(this.state.selectedProject);
-            // console.log(this.state.previousProject);
             axios.get('/projects/' + this.props.match.params.id)
                 .then(response => {
                     this.setState({ selectedProject: response.data, previousId: this.props.match.params.id });
@@ -56,20 +46,19 @@ class SelectedProject extends Component {
                 });
             const previousProject = this.state.selectedProject;
             this.setState({ previousProject: previousProject });
-            console.log('after ' + this.state.previousId);
         }
     }
 
     deleteProjectHandler = (deleteProject) => {
-        this.setState({deleteProject: deleteProject});
+        this.setState({ deleteProject: deleteProject });
     }
 
     editProjectHandler = (editProject) => {
-        this.setState({editProject: editProject})
+        this.setState({ editProject: editProject })
     }
 
     backdropCancelHandler = () => {
-        this.setState({deleteProject: null, editProject: null});
+        this.setState({ deleteProject: null, editProject: null });
     }
 
     render() {
@@ -84,7 +73,6 @@ class SelectedProject extends Component {
         }
 
         if (this.state.selectedProject && this.state.projectTasks) {
-            // console.log(this.state.selectedProject.name);
             selectedProject = (
                 <div>
                     {options}
