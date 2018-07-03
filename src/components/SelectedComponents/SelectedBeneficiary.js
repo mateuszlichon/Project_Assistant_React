@@ -6,6 +6,7 @@ import Projects from '../Projects/Projects';
 import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
 import EditProject from '../EditFunction/EditProject/EditProject';
 import DeleteBeneficiary from '../DeleteFunction/DeleteBeneficiary/DeleteBeneficiary';
+import EditBeneficiary from '../EditFunction/EditBeneficiary/EditBeneficiary';
 
 class SelectedBeneficiary extends Component {
     state = {
@@ -92,7 +93,7 @@ class SelectedBeneficiary extends Component {
         }
 
         if (this.state.editBeneficiary) {
-            // options = <EditBeneficiary editBeneficiary={this.state.editBeneficiary} backdropCancel={this.backdropCancelHandler} />
+            options = <EditBeneficiary editBeneficiary={this.state.editBeneficiary} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.selectedBeneficiary && this.state.beneficiaryProjects) {
