@@ -18,6 +18,8 @@ const project = (props) => (
         </Panel.Heading>
         <Panel.Body>
             <p>województwo: {props.project.voivodeship}</p>
+            <p>data rozpoczęcia: {props.project.startDate}</p>
+            <p>data zakończenia: {props.project.endDate ? props.project.endDate.toLocaleDateString() : null}</p>
             <p><Button bsStyle="danger" onClick={() => props.deleteProject(props.project)}>Usuń projekt</Button>
                 <Button bsStyle="warning" onClick={() => props.editProject(props.project)}>Edytuj projekt</Button></p>
         </Panel.Body>
