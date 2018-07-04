@@ -11,7 +11,7 @@ class AddProject extends Component {
         id: null,
         name: null,
         voivodeship: null,
-        date: new Date(),
+        startDate: null,
         beneficiary: this.props.beneficiary
     }
 
@@ -23,12 +23,11 @@ class AddProject extends Component {
     voivodeshipChangeHandler = (e) => {
         let value = e.target.value
         this.setState({ voivodeship: value });
+        console.log(this.state.voivodeship);
     }
 
     dateChangeHandler = (e) => {
-        console.log(e);
-        console.log(this.state.date);
-        
+        this.setState({ startDate: e });
     }
 
     submitChangeHandler = (e) => {
@@ -36,12 +35,12 @@ class AddProject extends Component {
         const updatedProject = {
             name: this.state.name,
             voivodeship: this.state.voivodeship,
+            startDate: this.state.startDate,
             beneficiary: this.state.beneficiary
         }
         axios.put('/projects', updatedProject)
             .then(response => {
                 console.log(response);
-                // this.props.history.push('/manager');
             })
             .catch(error => {
                 console.log(error);
@@ -73,7 +72,7 @@ class AddProject extends Component {
                                 onChange={this.voivodeshipChangeHandler}
                             />
                             <DayPickerInput
-                                selectedDays={this.state.date}
+                                // selectedDays={this.state.date}
                                 onDayChange={this.dateChangeHandler}
                             />
                             <Button bsStyle="warning" onClick={this.submitChangeHandler}>Potwierdź edycję</Button>
