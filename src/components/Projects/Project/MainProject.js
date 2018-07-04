@@ -1,5 +1,6 @@
 import React from 'react';
 import { Panel, Button } from 'react-bootstrap';
+import Moment from 'react-moment';
 
 const project = (props) => (
     // <div>
@@ -19,7 +20,7 @@ const project = (props) => (
         <Panel.Body>
             <p>województwo: {props.project.voivodeship}</p>
             <p>data rozpoczęcia: {props.project.startDate}</p>
-            <p>data zakończenia: {props.project.endDate ? props.project.endDate.toLocaleDateString() : null}</p>
+            <p>data zakończenia: <Moment format="DD-MM-YYYY">{props.project.endDate}</Moment></p>
             <p><Button bsStyle="danger" onClick={() => props.deleteProject(props.project)}>Usuń projekt</Button>
                 <Button bsStyle="warning" onClick={() => props.editProject(props.project)}>Edytuj projekt</Button></p>
         </Panel.Body>
