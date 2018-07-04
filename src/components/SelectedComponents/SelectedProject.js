@@ -112,6 +112,7 @@ class SelectedProject extends Component {
                         project={this.state.selectedProject}
                         deleteProject={(deleteProject) => this.deleteProjectHandler(deleteProject)}
                         editProject={(editProject) => this.editProjectHandler(editProject)}
+                        addTask={(addTask) => this.addTaskHandler(addTask)}
                     />
                     <br />
                     <h3 className="selectedComponentsHeadlines">Zadania wybranego projektu (kliknij aby rozwinąć):</h3>
