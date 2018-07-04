@@ -7,6 +7,7 @@ import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
 import EditProject from '../EditFunction/EditProject/EditProject';
 import DeleteTask from '../DeleteFunction/DeleteTask/DeleteTask';
 import EditTask from '../EditFunction/EditTask/EditTask';
+import AddTask from '../AddFunction/AddTask/AddTask';
 import {Button} from 'react-bootstrap';
 
 class SelectedProject extends Component {
@@ -18,7 +19,8 @@ class SelectedProject extends Component {
         deleteProject: null,
         editProject: null,
         deleteTask: null,
-        editTask: null
+        editTask: null,
+        addTask: null
     }
 
     componentDidMount() {
@@ -70,8 +72,12 @@ class SelectedProject extends Component {
         this.setState({ editTask: editTask })
     }
 
+    addTaskHandler = (addTask) => {
+        this.setState({ addTask: addTask })
+    }
+
     backdropCancelHandler = () => {
-        this.setState({ deleteProject: null, editProject: null, deleteTask: null, editTask: null });
+        this.setState({ deleteProject: null, editProject: null, deleteTask: null, editTask: null, addTask:null });
     }
 
     render() {
@@ -91,6 +97,10 @@ class SelectedProject extends Component {
 
         if (this.state.editTask) {
             options = <EditTask editTask={this.state.editTask} backdropCancel={this.backdropCancelHandler} />
+        }
+
+        if (this.state.addTask) {
+            options = <AddTask project={this.state.addTask} backdropCancel={this.backdropCancelHandler} />
         }
 
         if (this.state.selectedProject && this.state.projectTasks) {
