@@ -9,6 +9,8 @@ import DeleteBeneficiary from '../DeleteFunction/DeleteBeneficiary/DeleteBenefic
 import EditBeneficiary from '../EditFunction/EditBeneficiary/EditBeneficiary';
 import AddProject from '../AddFunction/AddProject/AddProject';
 import Spinner from '../UI/Spinner/Spinner';
+import {Button} from 'react-bootstrap';
+import './SelectedComponentsHeadlines.css';
 
 class SelectedBeneficiary extends Component {
     state = {
@@ -111,6 +113,7 @@ class SelectedBeneficiary extends Component {
             selectedBeneficiary = (
                 <div>
                     {options}
+                    <h3 className="selectedComponentsHeadlines">Wybrany beneficjent:</h3>
                     <Beneficiary
                         key={this.state.selectedBeneficiary.id}
                         beneficiary={this.state.selectedBeneficiary}
@@ -119,11 +122,13 @@ class SelectedBeneficiary extends Component {
                         addProject={(beneficiary) => this.addProjectHandler(beneficiary)}
                     />
                     <br />
+                    <h3 className="selectedComponentsHeadlines">Projekty wybranego beneficjenta (kliknij aby rozwinąć):</h3>
                     <Projects
                         projects={this.state.beneficiaryProjects}
                         deleteProject={(deleteProject) => this.deleteProjectHandler(deleteProject)}
                         editProject={(editProject) => this.editProjectHandler(editProject)}
                     />
+                    <Button block bsStyle="success" onClick={() => this.addProjectHandler(this.state.selectedBeneficiary)}>Dodaj projekt</Button>
                 </div>
             )
         }

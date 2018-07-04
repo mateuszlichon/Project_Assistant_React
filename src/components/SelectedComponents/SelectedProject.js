@@ -7,6 +7,7 @@ import DeleteProject from '../DeleteFunction/DeleteProject/DeleteProject';
 import EditProject from '../EditFunction/EditProject/EditProject';
 import DeleteTask from '../DeleteFunction/DeleteTask/DeleteTask';
 import EditTask from '../EditFunction/EditTask/EditTask';
+import {Button} from 'react-bootstrap';
 
 class SelectedProject extends Component {
     state = {
@@ -96,18 +97,21 @@ class SelectedProject extends Component {
             selectedProject = (
                 <div>
                     {options}
+                    <h3 className="selectedComponentsHeadlines">Wybrany projekt:</h3>
                     <MainProject
                         project={this.state.selectedProject}
                         deleteProject={(deleteProject) => this.deleteProjectHandler(deleteProject)}
                         editProject={(editProject) => this.editProjectHandler(editProject)}
                     />
                     <br />
+                    <h3 className="selectedComponentsHeadlines">Zadania wybranego projektu (kliknij aby rozwinąć):</h3>
                     <Tasks
                         tasks={this.state.projectTasks}
                         selectedTask={(selectedTask) => this.selectedTask(selectedTask)}
                         deleteTask={(deleteTask) => this.deleteTaskHandler(deleteTask)}
                         editTask={(editTask) => this.editTaskHandler(editTask)}
                     />
+                    <Button block bsStyle="success" onClick={() => this.addTaskHandler(this.state.selectedProject)}>Dodaj zadanie</Button>
                 </div>
             )
         }

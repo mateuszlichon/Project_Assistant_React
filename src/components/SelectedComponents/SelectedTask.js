@@ -65,6 +65,7 @@ class SelectedTask extends Component {
             selectedTask = (
                 <div>
                     {options}
+                    <h3 className="selectedComponentsHeadlines">Wybrane zadanie:</h3>
                     <MainTask
                         key={this.state.selectedTask.id}
                         task={this.state.selectedTask}

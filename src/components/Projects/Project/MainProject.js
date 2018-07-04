@@ -19,7 +19,7 @@ const project = (props) => (
         </Panel.Heading>
         <Panel.Body>
             <p>województwo: {props.project.voivodeship}</p>
-            <p>data rozpoczęcia: {props.project.startDate}</p>
+            <p>data rozpoczęcia: <Moment format="DD-MM-YYYY">{props.project.startDate}</Moment></p>
             <p>data zakończenia: <Moment format="DD-MM-YYYY">{props.project.endDate}</Moment></p>
             <p><Button bsStyle="danger" onClick={() => props.deleteProject(props.project)}>Usuń projekt</Button>
                 <Button bsStyle="warning" onClick={() => props.editProject(props.project)}>Edytuj projekt</Button></p>
