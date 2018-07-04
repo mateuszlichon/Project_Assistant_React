@@ -45,7 +45,7 @@ class AddBeneficiary extends Component {
                                 placeholder="Nazwa projektu"
                                 onChange={this.nameChangeHandler}
                             />
-                            <Button bsStyle="success" onClick={this.submitChangeHandler}>Potwierdź edycję</Button>
+                            <Button bsStyle="success" onClick={this.submitChangeHandler}>Dodaj beneficjenta</Button>
                         </FormGroup>
                     </form>
                 </div>

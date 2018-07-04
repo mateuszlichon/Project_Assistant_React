@@ -12,6 +12,7 @@ class AddProject extends Component {
         name: null,
         voivodeship: null,
         startDate: null,
+        endDate: null,
         beneficiary: this.props.beneficiary
     }
 
@@ -26,8 +27,12 @@ class AddProject extends Component {
         console.log(this.state.voivodeship);
     }
 
-    dateChangeHandler = (e) => {
+    startDateChangeHandler = (e) => {
         this.setState({ startDate: e });
+    }
+
+    endDateChangeHandler = (e) => {
+        this.setState({ endDate: e });
     }
 
     submitChangeHandler = (e) => {
@@ -36,6 +41,7 @@ class AddProject extends Component {
             name: this.state.name,
             voivodeship: this.state.voivodeship,
             startDate: this.state.startDate,
+            endDate: this.state.endDate,
             beneficiary: this.state.beneficiary
         }
         axios.put('/projects', updatedProject)
@@ -71,11 +77,15 @@ class AddProject extends Component {
                                 placeholder="Województwo"
                                 onChange={this.voivodeshipChangeHandler}
                             />
+                            <ControlLabel>Data rozpoczęcia projektu</ControlLabel><br />
                             <DayPickerInput
-                                // selectedDays={this.state.date}
-                                onDayChange={this.dateChangeHandler}
+                                onDayChange={this.startDateChangeHandler}
+                            /><br />
+                            <ControlLabel>Data zakończenia projektu</ControlLabel><br />
+                            <DayPickerInput
+                                onDayChange={this.endDateChangeHandler}
                             />
-                            <Button bsStyle="warning" onClick={this.submitChangeHandler}>Potwierdź edycję</Button>
+                            <p><Button bsStyle="success" onClick={this.submitChangeHandler}>Dodaj projekt</Button></p>
                         </FormGroup>
                     </form>
                 </div>
