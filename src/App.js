@@ -11,8 +11,8 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <NavigationBar />
-          <Route path="/" exact render={() => <h1>Strona powitalna @ do zrobienia</h1>} />
-          <Route path="/user" exact render={() => <h1>Panel użytkownika @ do zrobienia</h1>} />
+          <Route path="/" exact component={ProjectManager} />
+          <Route path="/user" exact component={ProjectManager} />
           <Route path="/manager" component={ProjectManager} />
         </div>
       </BrowserRouter>
