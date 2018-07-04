@@ -9,8 +9,8 @@ const task = (props) => (
         <Panel.Body>
             <p>wymagana liczba grup: {props.task.groupAmount}</p>
             <p>wymagana liczba uczestników: {props.task.participantAmount}</p>
-            <p><Button bsStyle="danger" onClick={() => props.deleteTask(props.task)}>Usuń projekt</Button>
-                <Button bsStyle="warning" onClick={() => props.editTask(props.task)}>Edytuj projekt</Button></p>
+            <p><Button bsStyle="danger" onClick={() => props.deleteTask(props.task)}>Usuń zadanie</Button>
+                <Button bsStyle="warning" onClick={() => props.editTask(props.task)}>Edytuj zadanie</Button></p>
         </Panel.Body>
     </Panel>
 )
