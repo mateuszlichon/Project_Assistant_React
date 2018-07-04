@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import axios from '../../../axios-base';
+import DayPickerInput from 'react-day-picker/DayPickerInput'
+import 'react-day-picker/lib/style.css';
 
 import Modal from '../../UI/Modal/Modal';
 
@@ -9,6 +11,7 @@ class AddProject extends Component {
         id: null,
         name: null,
         voivodeship: null,
+        date: new Date(),
         beneficiary: this.props.beneficiary
     }
 
@@ -20,6 +23,12 @@ class AddProject extends Component {
     voivodeshipChangeHandler = (e) => {
         let value = e.target.value
         this.setState({ voivodeship: value });
+    }
+
+    dateChangeHandler = (e) => {
+        console.log(e);
+        console.log(this.state.date);
+        
     }
 
     submitChangeHandler = (e) => {
@@ -36,7 +45,7 @@ class AddProject extends Component {
             })
             .catch(error => {
                 console.log(error);
-                
+
             })
         console.log(this.state.name);
         console.log(this.state.voivodeship);
@@ -62,6 +71,10 @@ class AddProject extends Component {
                                 defaultValue={this.state.voivodeship}
                                 placeholder="Województwo"
                                 onChange={this.voivodeshipChangeHandler}
+                            />
+                            <DayPickerInput
+                                selectedDays={this.state.date}
+                                onDayChange={this.dateChangeHandler}
                             />
                             <Button bsStyle="warning" onClick={this.submitChangeHandler}>Potwierdź edycję</Button>
                         </FormGroup>
