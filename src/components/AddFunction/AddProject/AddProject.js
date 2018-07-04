@@ -52,6 +52,7 @@ class AddProject extends Component {
                 console.log(error);
 
             })
+            window.location.reload();
         console.log(this.state.name);
         console.log(this.state.voivodeship);
     }
