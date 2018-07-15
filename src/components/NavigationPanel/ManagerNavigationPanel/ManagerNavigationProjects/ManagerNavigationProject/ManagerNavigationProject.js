@@ -11,7 +11,9 @@ const managerNavigationProject = (props) => (
         </NavLink>
         <ul>
             <ManagerNavigationTasks
-                projectId={props.projectId} />
+                projectId={props.projectId}
+                tasks={props.tasks}
+                />
         </ul>
     </div>
 )

@@ -8,11 +8,12 @@ class ManagerNavigationProjects extends Component {
         if (this.props.projects.length > 0) {
             beneficiaryProjects = this.props.projects.map(project => {
                 return (
-                        <ManagerNavigationProject
+                    <ManagerNavigationProject
                         key={project.id}
-                            name={project.name}
-                            projectId={project.id}
-                            />
+                        name={project.name}
+                        projectId={project.id}
+                        tasks={project.task}
+                    />
                 );
             });
         }
