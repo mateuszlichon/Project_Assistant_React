@@ -11,6 +11,7 @@ const managerNavigationBeneficiary = (props) => (
         </NavLink>
         <ul><ManagerNavigationProjects
             beneficiaryId={props.beneficiaryId}
+            projects={props.projects}
             />
             </ul>
     </div>

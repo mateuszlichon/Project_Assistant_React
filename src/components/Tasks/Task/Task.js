@@ -10,7 +10,6 @@ const task = (props) => (
         <Panel.Body collapsible>
             <p>wymagana liczba grup: {props.task.groupAmount}</p>
             <p>wymagana liczba uczestników: {props.task.participantAmount}</p>
-            <p>@jakieś informacje o zadaniu@</p>
             <Button bsStyle="danger" onClick={() => props.deleteTask(props.task)}>Usuń projekt</Button>
             <Button bsStyle="warning" onClick={() => props.editTask(props.task)}>Edytuj projekt</Button>
         </Panel.Body>

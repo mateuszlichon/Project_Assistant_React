@@ -9,6 +9,7 @@ const managerNavigationBeneficiaries = (props) => {
                 key={beneficiary.id}
                 name={beneficiary.name}
                 beneficiaryId={beneficiary.id}
+                projects={beneficiary.project}
                 />
 
         });
